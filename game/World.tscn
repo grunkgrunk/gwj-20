@@ -15,6 +15,15 @@ dad_path = NodePath("Characters/Dad")
 
 [node name="CharacterSelection" parent="ui" instance=ExtResource( 2 )]
 
+[node name="Clock" type="Label" parent="ui"]
+visible = false
+margin_right = 304.0
+margin_bottom = 305.0
+text = "Time: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Characters" type="YSort" parent="."]
 
 [node name="Guard" parent="Characters" instance=ExtResource( 5 )]

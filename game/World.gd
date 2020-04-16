@@ -33,15 +33,16 @@ func _input(e):
 
 
 func pause():
-	for a in get_actors():
-		a.pause()
+	G.paused = true
+
 
 func unpause():
-	for a in get_actors():
-		a.unpause()
+	G.paused = false
+
 
 
 func reset():
+	G.current_time = 0
 	for a in get_actors():
 		a.reset()
 

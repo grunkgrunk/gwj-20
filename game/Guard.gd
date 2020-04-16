@@ -4,15 +4,20 @@ extends Node2D
 export(float) var movespeed = 10
 signal caught
 
+var aware
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	aware = true
 	reset()
 
 
 func _on_Guard_body_entered(body):
-	if body.is_in_group("Actor"):
+	if body.is_in_group("Actor") and aware:
 		emit_signal("caught",body)
 	elif body.is_in_group("Cookies"):
+		aware = false
+		body.queue_free()
 		$Timer.start()
 		pause()
 		
@@ -36,4 +41,5 @@ func reset():
 
 
 func _on_Timer_timeout():
+	aware = true
 	unpause()

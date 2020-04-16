@@ -39,8 +39,3 @@ func reset():
 	position = start_pos
 	actions.reset()
 
-func pause():
-	actions.pause()
-	
-func unpause():
-	actions.unpause()

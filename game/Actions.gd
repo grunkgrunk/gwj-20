@@ -3,9 +3,8 @@ extends Node
 signal action_activated
 
 var is_player_in_control = false
-var is_active = false
+
 var record = []
-var current_time = 0
 var important_buttons = ["ui_up", "ui_down", "ui_left", "ui_right", "action_1", "action_2"]
 var virtual_keyboard = {}
 
@@ -21,18 +20,12 @@ func mk_keyboard():
 
 
 func reset():
-	current_time = 0
 	virtual_keyboard = mk_keyboard()
-	is_active = false
+
 	is_player_in_control = false
 	for r in record:
 		r.used =false
 
-func pause():
-	is_active = false
-
-func unpause():
-	is_active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,16 +33,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if not is_active:
+	if G.paused:
 		return
-	current_time += delta
 	update()
 	# DEBUG
 	#if Input.is_action_just_pressed("ui_accept"):
 	#	toggle()
 
 func move_direction():
-	if not is_active:
+	if G.paused:
 		return Vector2()
 	var move = player_move() if is_player_in_control else virtual_move() 
 	return move
@@ -84,7 +76,7 @@ func update_virtual_keyboard():
 		if evt.used:
 			continue
 		all_used = false
-		if current_time > evt.time:
+		if G.current_time > evt.time:
 			evt.used = true
 			emit_signal("action_activated", evt)
 			virtual_keyboard[evt.action] = evt.type == "pressed"
@@ -111,7 +103,7 @@ func virtual_move():
 	
 func mk_recording(x):
 	 return {
-		"time": current_time,
+		"time": G.current_time,
 		"action": x,
 		"type": f(x),
 		"used": false
