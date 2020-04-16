@@ -25,10 +25,8 @@ func reset():
 	virtual_keyboard = mk_keyboard()
 	is_active = false
 	is_player_in_control = false
-
-func toggle():
-	reset()
-	is_player_in_control = !is_player_in_control
+	for r in record:
+		r.used =false
 
 func pause():
 	is_active = false
@@ -47,10 +45,12 @@ func _process(delta):
 	current_time += delta
 	update()
 	# DEBUG
-	if Input.is_action_just_pressed("ui_accept"):
-		toggle()
+	#if Input.is_action_just_pressed("ui_accept"):
+	#	toggle()
 
 func move_direction():
+	if not is_active:
+		return Vector2()
 	var move = player_move() if is_player_in_control else virtual_move() 
 	return move
 
@@ -79,13 +79,21 @@ func player_move():
 	return move.normalized()
 
 func update_virtual_keyboard():
+	var all_used = true
 	for evt in record:
 		if evt.used:
 			continue
+		all_used = false
 		if current_time > evt.time:
 			evt.used = true
 			emit_signal("action_activated", evt)
 			virtual_keyboard[evt.action] = evt.type == "pressed"
+				
+	
+	if all_used:
+		virtual_keyboard = mk_keyboard()
+
+	
 
 
 func virtual_move():

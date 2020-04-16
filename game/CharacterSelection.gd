@@ -13,7 +13,10 @@ onready var avatars = $HBoxContainer/VBoxContainer.get_children()
 onready var stats = $HBoxContainer/Stats.get_children()
 
 func _ready():
-	print(stats)
+	for s in stats:
+		s.hide()
+	show_info(avatars[curr])
+	
 
 func _input(event):
 	if not is_visible():
