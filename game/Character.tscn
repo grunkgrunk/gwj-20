@@ -4,7 +4,7 @@
 [ext_resource path="res://guard.png" type="Texture" id=2]
 [ext_resource path="res://Actions.gd" type="Script" id=3]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
@@ -14,20 +14,22 @@ length = 0.1
 "Actor",
 ]]
 
-[node name="Shape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.29909, 0 )
-shape = SubResource( 3 )
+[node name="Position3D" type="Position3D" parent="."]
 
-[node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01656, 0 )
+[node name="Sprite" type="Sprite3D" parent="Position3D"]
+transform = Transform( 1, 0, 0, 0, 1, 1.1921e-07, 0, -1.1921e-07, 1, 0, 3.01656, -3.59603e-07 )
 billboard = 2
 texture = ExtResource( 2 )
+
+[node name="Shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.29909, 0 )
+shape = SubResource( 1 )
 
 [node name="Actions" type="Node" parent="."]
 script = ExtResource( 3 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite")
-playback_speed = 4.0
+root_node = NodePath("../Position3D")
+playback_speed = 3.0
 anims/idle = SubResource( 2 )
 anims/walk = ExtResource( 1 )
