@@ -19,8 +19,6 @@ func _process(delta):
 	if m.length()>0:
 		if not anim.is_playing():
 			anim.play("walk")
-	else:
-		anim.stop(false)
 	move_and_collide(m * movespeed*delta)
 
 func act(evt):
