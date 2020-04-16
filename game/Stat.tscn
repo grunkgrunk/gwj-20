@@ -23,14 +23,11 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_right = 66.0
 margin_bottom = 14.0
-text = "Stat_name"
 
 [node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
-margin_left = 70.0
+margin_left = 4.0
 margin_right = 1024.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
-value = 100.0

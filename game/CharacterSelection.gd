@@ -8,28 +8,34 @@ var new = false
 
 var selection = null
 
-export(Array,PackedScene) var stats
+onready var avatars = $HBoxContainer/VBoxContainer.get_children()
+onready var stats = $HBoxContainer/Stats.get_children()
 
-onready var nchars = len(stats)
+func _ready():
+	print(stats)
 
-	
 func _input(event):
-	if(event.is_action_pressed("ui_up")):
-		new = true
-		curr += 1
-	if(event.is_action_pressed("ui_down")):
-		new = true
-		curr -= 1
-		
-	if new:
-		curr = max(min(curr,nchars-1),0)
-		draw_character(curr)
-		new = false
+	# DO ONLY ONCE PER CLICK
+	var up = event.is_action_pressed("ui_up") 
+	var down = event.is_action_pressed("ui_down") 
+	if up or down:
+		hide_info(avatars[curr])
+		if up:
+			curr += 1
+		if down:
+			curr -= 1
+
+		curr = curr % len(avatars)		
+		show_info(avatars[curr])
 	
 	
-func draw_character(num):
-	if selection:
-		selection.queue_free()
-	selection = stats[num].instance()
-	add_child(selection)
+func show_info(avatar):
+	var s = avatar.stats
+	avatar.on_select()
+	s.show()
+
+func hide_info(avatar):
+	avatar.stats.hide()
+	avatar.on_deselect()
+	
 	
