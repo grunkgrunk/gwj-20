@@ -46,22 +46,23 @@ func reset():
 	for a in get_actors():
 		a.reset()
 
-func on_avatar_chosen(avatar_name):
+func choose_character(c):
 	reset()
 	unpause()
-	var a = mapping[avatar_name] 
-	a.actions.is_player_in_control = true
-	a.actions.record = []
+	c.actions.is_player_in_control = true
+	c.actions.record = []
 
 	#$Camera2D.smoothing_enabled = false 
-	$Camera2D.position = a.global_position
+	$Camera2D.position =  c.global_position
 	#$Camera2D.smoothing_enabled = true
 
-	$Camera2D.target = mapping[avatar_name]
+	$Camera2D.target = c
 
-
+func on_avatar_chosen(avatar_name):
+	var c = mapping[avatar_name] 
+	choose_character(c)
 	ch_select.hide()
 	
 func on_caught(body):
-	reset()
+	choose_character(body)
 

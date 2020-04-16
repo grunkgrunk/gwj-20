@@ -43,4 +43,6 @@ func action_2():
 func reset():
 	position = start_pos
 	actions.reset()
+	action_1_used = false
+	action_2_used = false
 

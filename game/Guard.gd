@@ -4,11 +4,9 @@ extends Node2D
 export(float) var movespeed = 10
 signal caught
 
-var aware
-
+var aware = true
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	aware = true
 	reset()
 
 
@@ -24,19 +22,14 @@ func _on_Guard_area_entered(area):
 		$Timer.start()
 		pause()
 		
-
-
 func pause():
 	$Animation.stop(false)
-
-
-func _on_pass():
-	pass
 	
 func unpause():
 	$Animation.play("MoveGuard")
 
 func reset():
+	aware = true
 	$Animation.stop(true)
 	$Animation.play("MoveGuard")
 	
