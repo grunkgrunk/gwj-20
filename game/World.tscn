@@ -8,11 +8,8 @@
 [ext_resource path="res://Camera.gd" type="Script" id=6]
 [ext_resource path="res://Characters.gd" type="Script" id=7]
 [ext_resource path="res://maptest.tscn" type="PackedScene" id=8]
-<<<<<<< HEAD
 [ext_resource path="res://Grill.tscn" type="PackedScene" id=9]
-=======
 [ext_resource path="res://Grass.tscn" type="PackedScene" id=9]
->>>>>>> ac40f46e5ac9cadf35f22eed5c841e55b4ec9c3a
 
 [sub_resource type="Environment" id=1]
 
