@@ -49,8 +49,16 @@ func reset():
 func on_avatar_chosen(avatar_name):
 	reset()
 	unpause()
-	mapping[avatar_name].actions.is_player_in_control = true
-	mapping[avatar_name].actions.record = []
+	var a = mapping[avatar_name] 
+	a.actions.is_player_in_control = true
+	a.actions.record = []
+
+	#$Camera2D.smoothing_enabled = false 
+	$Camera2D.position = a.global_position
+	#$Camera2D.smoothing_enabled = true
+
+	$Camera2D.target = mapping[avatar_name]
+
 
 	ch_select.hide()
 	
