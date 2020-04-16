@@ -19,6 +19,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var m = actions.move_direction()
+	if m != Vector3():
+		var cur = Quat(transform.basis)
+		var target = Quat(Vector3(0,atan2(-m.z, m.x) - PI / 2,0))
+		var smooth = cur.slerp(target, 0.2)
+		transform.basis = Basis(smooth)
+	#rotation.y = slerp(rotation.y, atan2(-m.z, m.x) - PI / 2, 0.5)
+
 	if m.length()>0:
 		if not anim.is_playing():
 			anim.play("walk")

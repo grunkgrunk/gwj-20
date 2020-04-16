@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://grill.png" type="Texture" id=1]
+
+[sub_resource type="SphereShape" id=1]
+radius = 1.8978
+
+[node name="Grill" type="Area"]
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 2.15351, 0 )
+billboard = 2
+shaded = true
+texture = ExtResource( 1 )
