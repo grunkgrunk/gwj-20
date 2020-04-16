@@ -1,5 +1,7 @@
 extends Spatial
 
+signal clicked_retry
+
 export(NodePath) var granny_path
 export(NodePath) var dad_path
 
@@ -30,6 +32,9 @@ func _input(e):
 		else:
 			ch_select.show() 
 			pause()
+	
+	if e.is_action_pressed("ui_accept"):
+		emit_signal("clicked_retry")
 
 
 func pause():
@@ -40,22 +45,21 @@ func unpause():
 	G.paused = false
 
 
-
 func reset():
 	G.current_time = 0
 	for a in get_actors():
 		a.reset()
 
+func gameover():
+	$ui/Fader.show_gameover()
+	yield(self, "clicked_retry")
+	
 func choose_character(c):
 	reset()
 	unpause()
 	c.actions.is_player_in_control = true
 	c.actions.record = []
-
-	#$Camera2D.smoothing_enabled = false 
-	# $Camera3D.position =  c.global_position
-	#$Camera2D.smoothing_enabled = true
-
+	$ui/Fader.reset()
 	$Camera.target = c
 
 func on_avatar_chosen(avatar_name):
@@ -64,5 +68,6 @@ func on_avatar_chosen(avatar_name):
 	ch_select.hide()
 	
 func on_caught(body):
+	gameover()
 	choose_character(body)
 
