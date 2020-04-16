@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://walk.tres" type="Animation" id=1]
 [ext_resource path="res://guard.png" type="Texture" id=2]
@@ -10,8 +10,12 @@
 resource_name = "idle"
 length = 0.1
 
+[sub_resource type="SphereShape" id=3]
+radius = 3.59916
+
 [node name="Character" type="KinematicBody" groups=[
 "Actor",
+"Player",
 ]]
 
 [node name="Position3D" type="Position3D" parent="."]
@@ -37,4 +41,11 @@ anims/walk = ExtResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7725, 0 )
+light_specular = 0.0
+light_bake_mode = 2
 spot_range = 10.5701
+
+[node name="ActionArea" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="ActionArea"]
+shape = SubResource( 3 )

@@ -8,7 +8,9 @@ func action_1():
 	var c = cookie_scene.instance()
 	c.global_transform =  global_transform.origin
 	emit_signal("object_spawned", c)
+	return true
 	
 
 func action_2():
 	print("hit guard with handbag")
+	return false
