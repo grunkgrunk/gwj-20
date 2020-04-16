@@ -6,6 +6,9 @@ onready var actions = $Actions
 
 var start_pos = Vector2()
 
+var action_1_used = false
+var action_2_used = false
+
 onready var anim = $Animation
 
 # Called when the node enters the scene tree for the first time.
@@ -24,9 +27,11 @@ func _process(delta):
 func act(evt):
 	if not evt.type == "pressed":
 		return
-	if evt.action == "action_1":
+	if evt.action == "action_1" and not action_1_used:
+		action_1_used = true
 		action_1()
-	if evt.action == "action_2":
+	if evt.action == "action_2" and not action_2_used:
+		action_2_used = true
 		action_2()
 
 func action_1():

@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Granny.gd" type="Script" id=1]
 [ext_resource path="res://Character.tscn" type="PackedScene" id=2]
 [ext_resource path="res://granny.png" type="Texture" id=3]
+[ext_resource path="res://Cookie.tscn" type="PackedScene" id=4]
 
 [node name="Granny" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+cookie_scene = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]
 modulate = Color( 0.992157, 0.992157, 0.992157, 1 )
