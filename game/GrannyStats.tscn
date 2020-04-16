@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Stat.tscn" type="PackedScene" id=1]
+
+[node name="GrannyStats" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stat2" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 1024.0
+margin_bottom = 0.0
+stat_name = "Cookies "
+stat_value = 80.0
+
+[node name="Stat" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 20.0
+margin_right = 1024.0
+margin_bottom = 20.0
+stat_name = "Speed "
+stat_value = 13.0
+
+[node name="Stat3" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 40.0
+margin_right = 1024.0
+margin_bottom = 40.0
+stat_name = "Wrinkles"
+stat_value = 100.0
+
+[node name="Stat4" parent="VBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 60.0
+margin_right = 1024.0
+margin_bottom = 60.0
+stat_name = "Nearsightedness"
+stat_value = 90.0

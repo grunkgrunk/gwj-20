@@ -1,9 +1,6 @@
-extends KinematicBody2D
+extends Node
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+signal action_activated
 
 var is_player_in_control = true
 var record = []
@@ -12,21 +9,18 @@ var important_buttons = ["ui_up", "ui_down", "ui_left", "ui_right", "action_1", 
 var movespeed = 1000
 var virtual_keyboard = {}
 
-onready var start_pos = position
-
 func mk_keyboard():
- return {
-	"ui_up": false,
-	"ui_down": false,
-	"ui_left": false,
-	"ui_right": false,
-	"action_1": false,
-	"action_2": false
-}
+	return {
+		"ui_up": false,
+		"ui_down": false,
+		"ui_left": false,
+		"ui_right": false,
+		"action_1": false,
+		"action_2": false
+	}
 
 func toggle():
 	current_time = 0
-	position = start_pos
 	virtual_keyboard = mk_keyboard()
 	is_player_in_control = !is_player_in_control
 
@@ -37,21 +31,25 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	current_time += delta
-	
+	update()
+	# DEBUG
 	if Input.is_action_just_pressed("ui_accept"):
 		toggle()
-	
-	
+
+func move_direction():
+	var move = player_move() if is_player_in_control else virtual_move() 
+	return move*movespeed
+
+func update():
 	if is_player_in_control:
 		for b in important_buttons:
-			if f(b):
-				record.append(mk_recording(b, current_time))
+			var action_type = f(b) 
+			if action_type:
+				var r = mk_recording(b)
+				record.append(r)
+				emit_signal("action_activated", r)
 	else:
-		update_virtual_keyboard(current_time)
-	var move = player_move() if is_player_in_control else virtual_move() 
-	
-	move_and_collide(move*movespeed*delta)
-	
+		update_virtual_keyboard()
 
 func player_move():
 	var move = Vector2(0,0)
@@ -66,13 +64,15 @@ func player_move():
 	
 	return move.normalized()
 
-func update_virtual_keyboard(current_time):
+func update_virtual_keyboard():
 	for evt in record:
 		if evt.used:
 			continue
 		if current_time > evt.time:
 			evt.used = true
+			emit_signal("action_activated", evt)
 			virtual_keyboard[evt.action] = evt.type == "pressed"
+
 
 func virtual_move():
 	var move = Vector2(0,0)
@@ -87,7 +87,7 @@ func virtual_move():
 	
 	return move.normalized()
 	
-func mk_recording(x, current_time):
+func mk_recording(x):
 	 return {
 		"time": current_time,
 		"action": x,
