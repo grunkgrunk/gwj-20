@@ -4,7 +4,7 @@
 [ext_resource path="res://Guard.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=3]
-radius = 9.24976
+radius = 5.93297
 
 [sub_resource type="Animation" id=2]
 resource_name = "MoveGuard"
@@ -25,6 +25,7 @@ shape = SubResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40557, 0 )
 offset = Vector2( 0, -250 )
 billboard = 2
+shaded = true
 texture = ExtResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]

@@ -56,7 +56,7 @@ func choose_character(c):
 	# $Camera3D.position =  c.global_position
 	#$Camera2D.smoothing_enabled = true
 
-	$Camera3D.target = c
+	$Camera.target = c
 
 func on_avatar_chosen(avatar_name):
 	var c = mapping[avatar_name] 
