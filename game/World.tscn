@@ -15,13 +15,13 @@ dad_path = NodePath("Characters/Dad")
 
 [node name="CharacterSelection" parent="ui" instance=ExtResource( 2 )]
 
-[node name="Characters" type="Node2D" parent="."]
+[node name="Characters" type="YSort" parent="."]
+
+[node name="Guard" parent="Characters" instance=ExtResource( 5 )]
+position = Vector2( 481.941, 131.874 )
 
 [node name="Granny" parent="Characters" instance=ExtResource( 4 )]
 position = Vector2( 261.538, 169.458 )
 
 [node name="Dad" parent="Characters" instance=ExtResource( 1 )]
 position = Vector2( 523.076, 338.916 )
-
-[node name="Guard" parent="." instance=ExtResource( 5 )]
-position = Vector2( 481.941, 131.874 )
