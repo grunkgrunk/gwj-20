@@ -10,8 +10,6 @@ script = ExtResource( 1 )
 cookie_scene = ExtResource( 4 )
 
 [node name="Sprite" parent="." index="1"]
-modulate = Color( 0.992157, 0.992157, 0.992157, 1 )
-position = Vector2( -1.36517, -14.418 )
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.4, 0.4 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -250 )

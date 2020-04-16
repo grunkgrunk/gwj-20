@@ -15,9 +15,12 @@ func _ready():
 func _on_Guard_body_entered(body):
 	if body.is_in_group("Actor") and aware:
 		emit_signal("caught",body)
-	elif body.is_in_group("Cookies"):
+		
+
+func _on_Guard_area_entered(area):
+	if area.is_in_group("Cookie"):
 		aware = false
-		body.queue_free()
+		area.queue_free()
 		$Timer.start()
 		pause()
 		
@@ -38,8 +41,11 @@ func reset():
 	$Animation.play("MoveGuard")
 	
 
-
+func _process(delta):
+	$Label.text = str(aware)
 
 func _on_Timer_timeout():
 	aware = true
 	unpause()
+
+
