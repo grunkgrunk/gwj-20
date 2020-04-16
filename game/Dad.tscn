@@ -7,7 +7,10 @@
 [node name="Dad" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
+[node name="Shape" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.29909, 0 )
+
 [node name="Sprite" parent="." index="1"]
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.3773, 0 )
 offset = Vector2( 0, -250 )
+texture = ExtResource( 3 )

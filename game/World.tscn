@@ -5,32 +5,34 @@
 [ext_resource path="res://World.gd" type="Script" id=3]
 [ext_resource path="res://Granny.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Guard.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://Camera.gd" type="Script" id=6]
 [ext_resource path="res://Characters.gd" type="Script" id=7]
 
-[node name="World" type="Node2D"]
+[node name="World" type="Spatial"]
 script = ExtResource( 3 )
 granny_path = NodePath("Characters/Granny")
 dad_path = NodePath("Characters/Dad")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 499.198, 464.208 )
+[node name="Camera3D" type="Camera" parent="."]
+transform = Transform( 0.998827, -0.0212234, 0.0435144, 0, 0.898794, 0.438372, -0.0484142, -0.437858, 0.89774, -9.01606, 6.97419, 6.4453 )
 current = true
 script = ExtResource( 6 )
+inital_target_path = NodePath("../Characters/Granny")
 
 [node name="ui" type="CanvasLayer" parent="."]
 
 [node name="CharacterSelection" parent="ui" instance=ExtResource( 2 )]
 visible = false
 
-[node name="Characters" type="YSort" parent="."]
+[node name="Characters" type="Spatial" parent="."]
 script = ExtResource( 7 )
 
 [node name="Guard" parent="Characters" instance=ExtResource( 5 )]
-position = Vector2( 481.941, 131.874 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.1737 )
+movespeed = 1.0
 
 [node name="Granny" parent="Characters" instance=ExtResource( 4 )]
-position = Vector2( 261.538, 169.458 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.53553, -0.132346, -2.44974 )
 
 [node name="Dad" parent="Characters" instance=ExtResource( 1 )]
-position = Vector2( 523.076, 338.916 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8584, 2.81544, -7.73522 )

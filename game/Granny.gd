@@ -6,7 +6,7 @@ export(PackedScene) var cookie_scene
 func action_1():
 	print("action 1 is op")
 	var c = cookie_scene.instance()
-	c.global_position = global_position
+	c.global_transform =  global_transform.origin
 	emit_signal("object_spawned", c)
 	
 

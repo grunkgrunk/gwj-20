@@ -42,7 +42,7 @@ func _process(delta):
 
 func move_direction():
 	if G.paused:
-		return Vector2()
+		return Vector3()
 	var move = player_move() if is_player_in_control else virtual_move() 
 	return move
 
@@ -58,11 +58,11 @@ func update():
 		update_virtual_keyboard()
 
 func player_move():
-	var move = Vector2(0,0)
+	var move = Vector3()
 	if Input.is_action_pressed("ui_up"):
-		move.y-=1
+		move.z-=1
 	if Input.is_action_pressed("ui_down"):
-		move.y+=1
+		move.z+=1
 	if Input.is_action_pressed("ui_left"):
 		move.x-=1
 	if Input.is_action_pressed("ui_right"):
@@ -89,11 +89,11 @@ func update_virtual_keyboard():
 
 
 func virtual_move():
-	var move = Vector2(0,0)
+	var move = Vector3()
 	if virtual_keyboard["ui_up"]:
-		move.y-=1
+		move.z-=1
 	if virtual_keyboard["ui_down"]:
-		move.y+=1
+		move.z+=1
 	if virtual_keyboard["ui_left"]:
 		move.x-=1
 	if virtual_keyboard["ui_right"]:

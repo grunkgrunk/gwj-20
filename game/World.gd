@@ -1,4 +1,4 @@
-extends Node2D
+extends Spatial
 
 export(NodePath) var granny_path
 export(NodePath) var dad_path
@@ -53,10 +53,10 @@ func choose_character(c):
 	c.actions.record = []
 
 	#$Camera2D.smoothing_enabled = false 
-	$Camera2D.position =  c.global_position
+	# $Camera3D.position =  c.global_position
 	#$Camera2D.smoothing_enabled = true
 
-	$Camera2D.target = c
+	$Camera3D.target = c
 
 func on_avatar_chosen(avatar_name):
 	var c = mapping[avatar_name] 

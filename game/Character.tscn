@@ -1,47 +1,26 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://walk.tres" type="Animation" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://guard.png" type="Texture" id=2]
 [ext_resource path="res://Actions.gd" type="Script" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CapsuleShape" id=3]
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
 length = 0.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ 0.0 ]
-}
 
-[node name="Character" type="KinematicBody2D" groups=[
+[node name="Character" type="KinematicBody" groups=[
 "Actor",
 ]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+[node name="Shape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1.29909, 0 )
+shape = SubResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.01656, 0 )
+billboard = 2
 texture = ExtResource( 2 )
 
 [node name="Actions" type="Node" parent="."]

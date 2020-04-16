@@ -1,10 +1,10 @@
-extends KinematicBody2D
+extends KinematicBody
 
-var movespeed = 100
+var movespeed = 10
 
 onready var actions = $Actions
 
-var start_pos = Vector2()
+var start_pos = Vector3()
 
 var action_1_used = false
 var action_2_used = false
@@ -14,7 +14,7 @@ onready var anim = $Animation
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	actions.connect("action_activated", self, "act")
-	start_pos = position
+	start_pos = transform.origin
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,7 +22,7 @@ func _process(delta):
 	if m.length()>0:
 		if not anim.is_playing():
 			anim.play("walk")
-	move_and_collide(m * movespeed*delta)
+	move_and_collide(m * movespeed * delta)
 
 func act(evt):
 	if not evt.type == "pressed":
@@ -41,7 +41,7 @@ func action_2():
 	print("grill expert")
 
 func reset():
-	position = start_pos
+	transform.origin = start_pos
 	actions.reset()
 	action_1_used = false
 	action_2_used = false
