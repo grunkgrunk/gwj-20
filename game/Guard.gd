@@ -11,7 +11,7 @@ func _ready():
 
 
 func _on_Guard_body_entered(body):
-	if body.is_in_group("Actor") and aware:
+	if body.is_in_group("Player") and aware:
 		emit_signal("caught",body)
 		
 

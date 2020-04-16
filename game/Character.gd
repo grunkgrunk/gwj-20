@@ -35,12 +35,10 @@ func act(evt):
 	if not evt.type == "pressed":
 		return
 	if evt.action == "action_1" and not action_1_used:
-		action_1_used = true
-		action_1()
+		action_1_used = action_1()
 	if evt.action == "action_2" and not action_2_used:
-		action_2_used = true
-		action_2()
-
+		action_2_used = action_2()
+		
 func action_1():
 	print("dad humor")
 

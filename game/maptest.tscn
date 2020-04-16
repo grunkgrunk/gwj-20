@@ -63,10 +63,10 @@ shape = SubResource( 6 )
 [node name="CollisionShape" type="CollisionShape" parent="Cube001/StaticBody" index="0"]
 shape = SubResource( 7 )
 
-[node name="Light" parent="." index="8"]
-transform = Transform( -0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, -1.07536, 4.75297, -1.00545 )
-
 [node name="StaticBody" type="StaticBody" parent="Cube" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube/StaticBody" index="0"]
 shape = SubResource( 8 )
+
+[node name="Light" parent="." index="9"]
+transform = Transform( -0.290865, -0.771101, 0.566393, -0.0551891, 0.604525, 0.794672, -0.955171, 0.199883, -0.218391, -1.07536, 4.75297, -1.00545 )

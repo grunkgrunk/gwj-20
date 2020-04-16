@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Dad.tscn" type="PackedScene" id=1]
 [ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://Characters.gd" type="Script" id=7]
 [ext_resource path="res://maptest.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Grill.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Grass.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Dog.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SecurityCam.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Environment" id=1]
 
@@ -18,10 +19,14 @@ script = ExtResource( 3 )
 granny_path = NodePath("Characters/Granny")
 dad_path = NodePath("Characters/Dad")
 
-[node name="Grill" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46865, 1.29634, -17.5024 )
+[node name="SecurityCam" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40.1696 )
 
 [node name="maptest" parent="." instance=ExtResource( 8 )]
+
+[node name="Grill" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.46865, 1.29634, -17.5024 )
+doggo = NodePath("../Dog")
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 0.997534, 0.0262927, -0.0650764, 0, 0.927184, 0.374608, 0.0701872, -0.373684, 0.924897, -8.35101, 9.43373, 13.2785 )
@@ -50,8 +55,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.8584, 1.16924, -7.73522 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="Grass" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1.08622, 0, 0, 0, 1, 0, 0, 0, 1.01378, -2.18317, 1.58797, -2.47925 )
-
-[node name="Grass2" parent="." instance=ExtResource( 9 )]
-transform = Transform( 1.08622, 0, 0, 0, 1, 0, 0, 0, 1.01378, -1.72186, 1.58797, -5.0974 )
+[node name="Dog" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.783, 3.28324, -16.7435 )
