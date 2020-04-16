@@ -2,11 +2,11 @@ extends Node
 
 signal action_activated
 
-var is_player_in_control = true
+var is_player_in_control = false
+var is_active = false
 var record = []
 var current_time = 0
 var important_buttons = ["ui_up", "ui_down", "ui_left", "ui_right", "action_1", "action_2"]
-var movespeed = 1000
 var virtual_keyboard = {}
 
 func mk_keyboard():
@@ -19,10 +19,22 @@ func mk_keyboard():
 		"action_2": false
 	}
 
-func toggle():
+
+func reset():
 	current_time = 0
 	virtual_keyboard = mk_keyboard()
+	is_active = false
+	is_player_in_control = false
+
+func toggle():
+	reset()
 	is_player_in_control = !is_player_in_control
+
+func pause():
+	is_active = false
+
+func unpause():
+	is_active = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,6 +42,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not is_active:
+		return
 	current_time += delta
 	update()
 	# DEBUG
@@ -38,7 +52,7 @@ func _process(delta):
 
 func move_direction():
 	var move = player_move() if is_player_in_control else virtual_move() 
-	return move*movespeed
+	return move
 
 func update():
 	if is_player_in_control:

@@ -1,5 +1,6 @@
 extends Control
 
+signal avatar_chosen
 
 
 var curr = 0
@@ -15,6 +16,8 @@ func _ready():
 	print(stats)
 
 func _input(event):
+	if not is_visible():
+		return
 	# DO ONLY ONCE PER CLICK
 	var up = event.is_action_pressed("ui_up") 
 	var down = event.is_action_pressed("ui_down") 
@@ -27,6 +30,10 @@ func _input(event):
 
 		curr = curr % len(avatars)		
 		show_info(avatars[curr])
+	
+	if event.is_action_pressed("ui_accept"):
+		emit_signal("avatar_chosen", avatars[curr].avatar_name)
+	
 	
 	
 func show_info(avatar):
