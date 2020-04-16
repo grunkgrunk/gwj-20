@@ -12,6 +12,10 @@ func _ready():
 func _on_Guard_body_entered(body):
 	if body.is_in_group("Actor"):
 		emit_signal("caught",body)
+	elif body.is_in_group("Cookies"):
+		$Timer.start()
+		pause()
+		
 
 
 func pause():
@@ -29,3 +33,7 @@ func reset():
 	$Animation.play("MoveGuard")
 	
 
+
+
+func _on_Timer_timeout():
+	unpause()
