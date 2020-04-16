@@ -7,14 +7,10 @@ var curr = 0
 var new = false
 
 var selection = null
-export(Array,PackedScene) var characters
 
-onready var nchars = len(characters)
+export(Array,PackedScene) var stats
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
+onready var nchars = len(stats)
 
 	
 func _input(event):
@@ -34,7 +30,6 @@ func _input(event):
 func draw_character(num):
 	if selection:
 		selection.queue_free()
-	selection = characters[num].instance()
-	self.add_child(selection)
-	
+	selection = stats[num].instance()
+	add_child(selection)
 	
