@@ -3,7 +3,6 @@
 [resource]
 resource_name = "walk"
 length = 2.0
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
