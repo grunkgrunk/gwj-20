@@ -36,3 +36,6 @@ func reset():
 
 func pause():
 	actions.pause()
+	
+func unpause():
+	actions.unpause()

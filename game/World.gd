@@ -15,6 +15,9 @@ onready var ch_select = $ui/CharacterSelection
 func _ready():
 	ch_select.hide()
 	ch_select.connect("avatar_chosen", self, "on_avatar_chosen")
+	
+	for g in get_tree().get_nodes_in_group("Guard"):
+		g.connect("caught",self,"on_caught")
 
 func get_actors():
 	return get_tree().get_nodes_in_group("Actor")
@@ -31,11 +34,11 @@ func _input(e):
 
 func pause():
 	for a in get_actors():
-		a.actions.pause()
+		a.pause()
 
 func unpause():
 	for a in get_actors():
-		a.actions.unpause()
+		a.unpause()
 
 
 func reset():
@@ -50,5 +53,6 @@ func on_avatar_chosen(avatar_name):
 
 	ch_select.hide()
 	
-
+func on_caught(body):
+	reset()
 
