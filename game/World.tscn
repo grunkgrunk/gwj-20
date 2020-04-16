@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://CharacterSelection.gd" type="Script" id=3]
+[ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -18,10 +18,4 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="Player"]
 texture = ExtResource( 2 )
 
-[node name="CharacterSelection" type="Control" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 3 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CharacterSelection" parent="." instance=ExtResource( 3 )]
