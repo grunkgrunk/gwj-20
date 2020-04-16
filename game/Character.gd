@@ -6,6 +6,8 @@ onready var actions = $Actions
 
 var start_pos = Vector2()
 
+onready var anim = $Animation
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	actions.connect("action_activated", self, "act")
@@ -14,6 +16,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var m = actions.move_direction()
+	if m.length()>0:
+		if not anim.is_playing():
+			anim.play("walk")
+	else:
+		anim.stop(false)
 	move_and_collide(m * movespeed*delta)
 
 func act(evt):

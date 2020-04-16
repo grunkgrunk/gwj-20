@@ -18,6 +18,7 @@ dad_path = NodePath("Characters/Dad")
 [node name="Characters" type="Node2D" parent="."]
 
 [node name="Granny" parent="Characters" instance=ExtResource( 4 )]
+position = Vector2( 261.538, 169.458 )
 
 [node name="Dad" parent="Characters" instance=ExtResource( 1 )]
 position = Vector2( 523.076, 338.916 )
