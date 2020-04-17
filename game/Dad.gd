@@ -6,10 +6,6 @@ extends "res://Character.gd"
 var ab_name_1 = "Joke"
 var ab_name_2 = "Grill"
 
-func _ready():
-	._ready()
-
-
 func action_1():
 	print("dad humor")
 

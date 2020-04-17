@@ -1,12 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fader.gd" type="Script" id=1]
 [ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Abilities.gd" type="Script" id=3]
 [ext_resource path="res://Clock.gd" type="Script" id=4]
+[ext_resource path="res://AbilityFont.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -22,6 +24,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=2]
 resource_name = "FadeOut"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
@@ -66,10 +69,11 @@ __meta__ = {
 }
 
 [node name="Ability" type="Label" parent="Abilities/C"]
-margin_left = 1.422
-margin_top = 14.5044
-margin_right = 41.422
-margin_bottom = 45.5044
+margin_left = -1.02151
+margin_top = 21.835
+margin_right = 49.9785
+margin_bottom = 64.835
+custom_fonts/font = ExtResource( 5 )
 text = "Hack
 "
 __meta__ = {
@@ -79,6 +83,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/C"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 5 )
 text = "( C )
 "
 __meta__ = {
@@ -95,10 +100,11 @@ __meta__ = {
 }
 
 [node name="Ability" type="Label" parent="Abilities/V"]
-margin_left = 1.422
-margin_top = 14.5044
-margin_right = 41.422
-margin_bottom = 45.5044
+margin_left = 2.23651
+margin_top = 23.464
+margin_right = 53.2365
+margin_bottom = 66.464
+custom_fonts/font = ExtResource( 5 )
 text = "Hack
 "
 __meta__ = {
@@ -108,6 +114,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/V"]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_fonts/font = ExtResource( 5 )
 text = "( V )
 
 "
@@ -136,20 +143,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Fader"]
-margin_right = 73.0
-margin_bottom = 14.0
-text = "Game Over"
+[node name="Clock" type="Label" parent="."]
+margin_left = 940.173
+margin_top = 41.2216
+margin_right = 980.173
+margin_bottom = 61.2216
+custom_fonts/font = ExtResource( 5 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Clock" type="Label" parent="."]
-margin_left = 940.173
-margin_top = 42.0361
-margin_right = 980.173
-margin_bottom = 56.0361
-script = ExtResource( 4 )
+[node name="GameOver" type="Label" parent="."]
+margin_left = 333.202
+margin_top = 261.801
+margin_right = 711.202
+margin_bottom = 332.801
+text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -8,17 +8,17 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.hide()
+	fade_in()
+
+func reset():
 	$AnimationPlayer.play("FadeIn")
 
-func show_gameover():
+func fade_out():
 	$AnimationPlayer.play("FadeOut")
-	yield($AnimationPlayer, "animation_finished")
-	$Label.show()
-	
-func reset():
-	$Label.hide()
+
+func fade_in():
 	$AnimationPlayer.play("FadeIn")
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

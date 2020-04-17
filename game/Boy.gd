@@ -9,7 +9,7 @@ var ab_name_2 = "Sprint"
 var has_treasure = false
 
 func _ready():
-	._ready()
+	#._ready()
 	$Position3D/Treasure.hide()
 	$ActionArea.connect("area_entered", self, "_on_area_entered")
 

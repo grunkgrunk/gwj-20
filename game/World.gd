@@ -6,19 +6,21 @@ export(NodePath) var granny_path
 export(NodePath) var dad_path
 export(NodePath) var boy_path
 
+var death_reasons = {
+	"Dog": "You "
+}
+
 onready var mapping = {
 	"Granny": get_node(granny_path),
 	"Dad": get_node(dad_path),
 	"Boy": get_node(boy_path)
 }
 
-
 # Called when the node enters the scene tree for the first time.
 onready var ch_select = $ui/CharacterSelection
 
-
-
 func _ready():
+	reset()
 	ch_select.hide()
 	ch_select.connect("avatar_chosen", self, "on_avatar_chosen")
 	
@@ -40,11 +42,16 @@ func _input(e):
 		if ch_select.is_visible():
 			ch_select.hide()
 			unpause()
+			$ui/Abilities.show()
+
 		else:
-			ch_select.show() 
+			ch_select.show()
+			$ui/Abilities.hide()
+
 			pause()
 	
 	if e.is_action_pressed("ui_accept"):
+		gameover()
 		emit_signal("clicked_retry")
 
 
@@ -58,13 +65,17 @@ func unpause():
 
 func reset():
 	$ui/Abilities.reset()
+	$ui/GameOver.hide()
 	G.current_time = 0
 	for a in get_actors():
 		a.reset()
 
 func gameover():
-	$ui/Fader.show_gameover()
+	$ui/Fader.fade_out()
+	yield($ui/Fader/AnimationPlayer, "animation_finished")
+	$ui/GameOver.show()
 	yield(self, "clicked_retry")
+	
 	
 func choose_character(c):
 	reset()
@@ -74,6 +85,7 @@ func choose_character(c):
 	
 	$ui/Abilities/C/Ability.text = c.ab_name_1
 	$ui/Abilities/V/Ability.text = c.ab_name_2
+	$ui/Abilities.show()
 	$ui/Fader.reset()
 	$Camera.target = c
 
