@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Computer.gd" type="Script" id=1]
+[ext_resource path="res://OldComputer.png" type="Texture" id=2]
+[ext_resource path="res://OldComputerOff.png" type="Texture" id=3]
+
+[sub_resource type="SphereShape" id=1]
+radius = 1.8978
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "default",
+"speed": 0.0
+} ]
+
+[node name="Computer" type="Area" groups=[
+"Grill",
+]]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15351, 0 )
+billboard = 2
+frames = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
