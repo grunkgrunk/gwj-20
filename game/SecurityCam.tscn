@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Camera.png" type="Texture" id=1]
 [ext_resource path="res://SecurityCam.gd" type="Script" id=2]
+[ext_resource path="res://bowl.wav" type="AudioStream" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 4.69085
@@ -21,6 +22,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1080, 0 ), Vector3( 0, 1440, 0 ), Vector3( 0, 3960, 0 ) ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( -0.2 )
+}
 
 [sub_resource type="SphereShape" id=3]
 radius = 5.02305
@@ -30,6 +45,7 @@ radius = 5.02305
 "Killer",
 "SecurityCam",
 ]]
+transform = Transform( 1, 0, 6.99382e-07, 0, 1, 0, -6.99382e-07, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -57,5 +73,8 @@ anims/Rotator = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="Spot"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33486, 0, -1.55158e-06 )
 shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

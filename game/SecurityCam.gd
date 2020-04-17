@@ -19,7 +19,7 @@ func catch():
 
 func hit():
 	cancatch = false
-	$Sprite/Light.light_energy = 0
+	$Sprite/Light.light_energy = 0.3
 	$AnimationPlayer.play("Rotator")
 	
 func reset():
