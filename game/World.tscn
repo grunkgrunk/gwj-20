@@ -49,6 +49,11 @@ current = true
 script = ExtResource( 6 )
 inital_target_path = NodePath("../Characters/Granny")
 
+[node name="SpotLight" type="SpotLight" parent="Camera"]
+light_energy = 0.1
+spot_range = 73.9583
+spot_angle = 35.6926
+
 [node name="Ground" parent="." instance=ExtResource( 8 )]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
 
