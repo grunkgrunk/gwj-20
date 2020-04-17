@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Stat.gd" type="Script" id=1]
-[ext_resource path="res://Sunrise International Demo.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://font.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://progress.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]

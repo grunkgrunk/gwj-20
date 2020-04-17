@@ -1,4 +1,3 @@
-tool
 extends Control
 
 export(String) var avatar_name = ""
@@ -12,14 +11,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Engine.editor_hint:
-		$Sprite/Label.text = avatar_name
-
-
+#func _process(delta):
+	#if Engine.editor_hint:
+	#	$Sprite/Label.text = avatar_name
 
 func on_select():
-	$Sprite/Label.text += "!"
 	$AnimationPlayer.play("Hover")
 	$Sprite.z_index = 1000
 

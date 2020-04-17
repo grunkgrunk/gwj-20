@@ -11,9 +11,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Flavor" parent="." instance=ExtResource( 2 )]
+margin_right = 519.0
+margin_bottom = 441.0
+text = "Baking cookies by day, robbing houses by night. Do not let the wrinkles decieve you; this grandma could steal your purse. 
+
+Abilities: 
+1) Distractingly Delicious Cookies^tm (With chocolate and NyQuill)
+2) Computer Hacker (\"How do I open MySpace?\")"
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.12347
+margin_right = -306.0
+margin_bottom = -1.12347
 custom_constants/separation = 65
 script = ExtResource( 3 )
 __meta__ = {
@@ -25,7 +37,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 0.0
-margin_right = 1024.0
+margin_right = 718.0
 margin_bottom = 0.0
 stat_name = "Cookies                "
 stat_value = 80.0
@@ -44,7 +56,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 65.0
-margin_right = 1024.0
+margin_right = 718.0
 margin_bottom = 65.0
 stat_name = "Speed                  "
 stat_value = 13.0
@@ -63,7 +75,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 130.0
-margin_right = 1024.0
+margin_right = 718.0
 margin_bottom = 130.0
 stat_name = "Wrinkles              "
 
@@ -80,7 +92,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
 margin_top = 195.0
-margin_right = 1024.0
+margin_right = 718.0
 margin_bottom = 195.0
 stat_name = "Nearsightedness    "
 stat_value = 90.0
@@ -94,15 +106,6 @@ modulate = Color( 1, 0, 0, 1 )
 margin_left = 205.0
 margin_right = 525.0
 value = 90.0
-
-[node name="Flavor" parent="VBoxContainer" instance=ExtResource( 2 )]
-margin_bottom = 407.0
-text = "Baking cookies by day, robbing houses by night.
- Do not let the wrinkles decieve you; this grandma could steal your purse. 
-
-Abilities: 
-1) Distractingly Delicious Cookies^tm (With chocolate and NyQuill)
-2) Computer Hacker (\"How do I open MySpace?\")"
 
 [editable path="VBoxContainer/Stat2"]
 
