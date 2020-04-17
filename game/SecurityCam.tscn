@@ -8,7 +8,7 @@ radius = 4.69085
 
 [sub_resource type="Animation" id=2]
 resource_name = "Rotator"
-length = 10.0
+length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
 tracks/0/interp = 1
@@ -16,20 +16,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1, 2.5, 4, 5.5, 10 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 2, 4, 10 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1440, 0 ), Vector3( 0, 2520, 0 ), Vector3( 0, 3240, 0 ), Vector3( 0, 3600, 0 ), Vector3( 0, 3960, 0 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 810, 0 ), Vector3( 0, 1080, 0 ), Vector3( 0, 3960, 0 ) ]
 }
 
 [sub_resource type="SphereShape" id=3]
-radius = 4.31239
+radius = 5.02305
 
 [node name="SecurityCam" type="Area" groups=[
 "Actor",
 "SecurityCam",
 ]]
-transform = Transform( 1, 0, 6.99382e-07, 0, 1, 0, -6.99382e-07, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
@@ -55,6 +54,6 @@ anims/Rotator = SubResource( 2 )
 [node name="Spot" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2629, 0, -1.55158e-06 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.33486, 0, -1.55158e-06 )
 shape = SubResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

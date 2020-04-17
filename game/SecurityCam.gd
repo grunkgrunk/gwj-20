@@ -7,7 +7,7 @@ func _ready():
 
 func b(body):
 	if body.is_in_group("Player"):
-		emit_signal("caught",body)
+		emit_signal("caught",body,name)
 		catch()
 		
 func catch():
@@ -19,4 +19,5 @@ func hit():
 	$AnimationPlayer.play("Rotator")
 	
 func reset():
-	$AnimationPlayer.stop()
+	$AnimationPlayer.seek(0,true)
+	$AnimationPlayer.stop(true)
