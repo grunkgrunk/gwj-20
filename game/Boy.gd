@@ -4,7 +4,22 @@ signal object_spawned
 export(PackedScene) var cookie_scene
 
 var ab_name_1 = "Slingshot"
-var ab_name_2 = "Sprint"   
+var ab_name_2 = "Sprint"
+
+var has_treasure = false
+
+func _ready():
+	._ready()
+	$ActionArea.connect("area_entered", self, "_on_area_entered")
+
+func _on_area_entered(a):
+	if a.is_in_group("Treasure"):
+		a.take()
+		
+
+func reset():
+	has_treasure = false
+	.reset()
 
 func action_1():
 	print("Shoot with slingshot")

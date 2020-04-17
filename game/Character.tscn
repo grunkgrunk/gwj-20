@@ -41,9 +41,11 @@ anims/walk = ExtResource( 1 )
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7725, 0 )
+light_energy = 2.38
 light_specular = 0.0
 light_bake_mode = 2
-spot_range = 10.5701
+spot_range = 32.0473
+spot_angle = 49.2736
 
 [node name="ActionArea" type="Area" parent="."]
 
