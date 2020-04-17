@@ -47,11 +47,11 @@ size_flags_vertical = 3
 avatar_name = "Granny"
 path_to_stats = NodePath("../../Stats/GrannyStats")
 
-[node name="Label" parent="HBoxContainer/VBoxContainer/Granny" index="0"]
-text = "Granny"
-
-[node name="Sprite" parent="HBoxContainer/VBoxContainer/Granny" index="1"]
+[node name="Sprite" parent="HBoxContainer/VBoxContainer/Granny" index="0"]
 texture = ExtResource( 6 )
+
+[node name="Label" parent="HBoxContainer/VBoxContainer/Granny" index="1"]
+text = "Granny"
 
 [node name="Dad" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -64,7 +64,7 @@ size_flags_vertical = 3
 avatar_name = "Dad"
 path_to_stats = NodePath("../../Stats/DadStats")
 
-[node name="Label" parent="HBoxContainer/VBoxContainer/Dad" index="0"]
+[node name="Label" parent="HBoxContainer/VBoxContainer/Dad" index="1"]
 text = "Dad"
 
 [node name="Boy" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
@@ -78,12 +78,12 @@ size_flags_vertical = 3
 avatar_name = "Boy"
 path_to_stats = NodePath("../../Stats/BoyStats")
 
-[node name="Label" parent="HBoxContainer/VBoxContainer/Boy" index="0"]
-text = "Boy"
-
-[node name="Sprite" parent="HBoxContainer/VBoxContainer/Boy" index="1"]
+[node name="Sprite" parent="HBoxContainer/VBoxContainer/Boy" index="0"]
 texture = ExtResource( 7 )
 region_rect = Rect2( 146.741, 206.912, 255.648, 283.61 )
+
+[node name="Label" parent="HBoxContainer/VBoxContainer/Boy" index="1"]
+text = "Boy"
 
 [node name="Stats" type="Control" parent="HBoxContainer"]
 margin_left = 514.0

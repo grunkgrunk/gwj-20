@@ -44,22 +44,25 @@ __meta__ = {
 }
 avatar_name = "My Avatar"
 
-[node name="Label" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-rect_scale = Vector2( 0.900115, 1.27591 )
-custom_colors/font_color = Color( 0.996078, 0.992157, 0.992157, 1 )
-text = "My Avatar"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 86.5784, 87.5417 )
 scale = Vector2( 0.82, 0.82 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 92.282, 174.637, 272.687, 270.102 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -11.3874
+margin_top = 123.635
+margin_right = 196.613
+margin_bottom = 190.635
+rect_scale = Vector2( 0.900115, 1.27591 )
+custom_colors/font_color = Color( 0.996078, 0.992157, 0.992157, 1 )
+text = "My Avatar"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
