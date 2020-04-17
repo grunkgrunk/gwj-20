@@ -37,7 +37,7 @@ func action_1():
 
 func action_2():
 	print("Run super fast")
-	movespeed = 20
+	movespeed = 25
 	$RunTimer.start()
 	return true
 	
@@ -45,4 +45,4 @@ func action_2():
 
 
 func _on_RunTimer_timeout():
-	movespeed = 10
+	movespeed = 12

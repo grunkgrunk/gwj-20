@@ -2,7 +2,7 @@ extends KinematicBody
 
 signal used_ability
 
-var movespeed = 10
+export var movespeed = 10
 
 onready var actions = $Actions
 
