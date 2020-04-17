@@ -27,6 +27,7 @@ radius = 3.66383
 
 [node name="SecurityCam" type="Area" groups=[
 "Actor",
+"Killer",
 "SecurityCam",
 ]]
 transform = Transform( 1, 0, 6.99382e-07, 0, 1, 0, -6.99382e-07, 0, 1, 0, 0, 0 )

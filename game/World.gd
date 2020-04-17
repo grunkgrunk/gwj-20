@@ -29,7 +29,7 @@ func _ready():
 	for p in get_tree().get_nodes_in_group("Player"):
 		p.connect("used_ability", self, "_on_used_ability")
 	
-	for g in get_tree().get_nodes_in_group("Guard"):
+	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
 
 func _on_used_ability(n, success):

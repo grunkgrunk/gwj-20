@@ -5,7 +5,7 @@
 [ext_resource path="res://walk.tres" type="Animation" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
-radius = 6.17292
+radius = 5.93297
 
 [sub_resource type="Animation" id=2]
 resource_name = "MoveGuard"
@@ -21,10 +21,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2, 3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( -28, 0, -11.561 ), Vector3( -28, 0, 17.042 ), Vector3( -10.0434, 0, 18.0491 ), Vector3( -27.6346, 0, 15.6549 ) ]
+"values": [ Vector3( -31.4518, 0, -11.5614 ), Vector3( -31.4518, 0, 17.0418 ), Vector3( -10.0434, 0, 18.0491 ), Vector3( -27.6346, 0, 15.6549 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Fall"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rotation_degrees")
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( -90, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Stand"
 length = 0.5
 tracks/0/type = "value"
@@ -55,8 +55,7 @@ tracks/0/keys = {
 "values": [ Vector3( -90, 0, 0 ), Vector3( 1, 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "walk (copy)"
+[sub_resource type="Animation" id=5]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -87,6 +86,7 @@ tracks/1/keys = {
 [node name="Guard" type="Area" groups=[
 "Actor",
 "Guard",
+"Killer",
 ]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -11.561 )
 script = ExtResource( 2 )
@@ -114,10 +114,10 @@ __meta__ = {
 root_node = NodePath("../pivot")
 autoplay = "walk (copy)"
 playback_speed = 3.0
-anims/Fall = SubResource( 4 )
-anims/Stand = SubResource( 5 )
+anims/Fall = SubResource( 3 )
+anims/Stand = SubResource( 4 )
 anims/walk = ExtResource( 3 )
-"anims/walk (copy)" = SubResource( 3 )
+"anims/walk (copy)" = SubResource( 5 )
 
 [node name="pivot" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0 )
