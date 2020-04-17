@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Computer.gd" type="Script" id=1]
-[ext_resource path="res://OldComputer.png" type="Texture" id=2]
-[ext_resource path="res://OldComputerOff.png" type="Texture" id=3]
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://Button.png" type="Texture" id=2]
+[ext_resource path="res://BottunPressed.png" type="Texture" id=3]
 
 [sub_resource type="SphereShape" id=1]
 radius = 4.78464
@@ -10,12 +10,12 @@ radius = 4.78464
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": false,
+"loop": true,
 "name": "default",
-"speed": 0.0
+"speed": 5.0
 } ]
 
-[node name="Computer" type="Area" groups=[
+[node name="Button" type="Area" groups=[
 "Actor",
 "Computer",
 ]]
@@ -30,8 +30,3 @@ transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 2.15351, 0 )
 billboard = 2
 shaded = true
 frames = SubResource( 2 )
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -12,7 +12,7 @@ func _ready():
 
 func _on_Guard_body_entered(body):
 	if body.is_in_group("Player") and aware:
-		emit_signal("caught",body)
+		emit_signal("caught",body,name)
 		
 
 func _on_Guard_area_entered(area):
@@ -33,6 +33,7 @@ func unpause():
 	$Animation.play("MoveGuard")
 
 func reset():
+	$AnimationPlayer.seek(0,true)
 	aware = true
 	$Animation.stop(true)
 	$Animation.play("MoveGuard")

@@ -1,6 +1,6 @@
 extends Area
 
-
+signal caught
 
 func _ready():
 	connect("body_entered", self, "b")
@@ -9,6 +9,7 @@ func _ready():
 
 func b(body):
 	if body.is_in_group("Player") and !$Animation.is_playing():
+		emit_signal("caught",body,name)
 		catch()
 		
 
@@ -29,7 +30,9 @@ func anim_end(name):
 		$Animation.play("ReturnToRest")
 
 func catch():
+	
 	print("You lost")
 
 func reset():
+	$Animation.seek(0,true)
 	$Animation.stop()

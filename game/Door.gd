@@ -8,5 +8,6 @@ func close():
 	$Animation.play("CloseDoor")
 
 func reset():
-	$Animation.play("CloseDoor")
+	$Animation.play("OpenDoor")
+	$Animation.seek(0,true)
 	$Animation.stop()
