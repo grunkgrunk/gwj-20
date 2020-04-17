@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Door.gd" type="Script" id=1]
 [ext_resource path="res://door.png" type="Texture" id=2]
+[ext_resource path="res://Closedoor.wav" type="AudioStream" id=3]
+[ext_resource path="res://Opdendoor.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CloseDoor"
@@ -16,6 +18,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 90, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0.7 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -32,6 +48,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( 0, 90, 0 ), Vector3( 0, 0, 0 ) ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("AudioStreamPlayer3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [sub_resource type="BoxShape" id=3]
 extents = Vector3( 2.39952, 5.88933, 0.202289 )
@@ -47,7 +77,7 @@ anims/CloseDoor = SubResource( 1 )
 anims/OpenDoor = SubResource( 2 )
 
 [node name="Door" type="StaticBody" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 0, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40863, 4.97538, 0 )
@@ -57,3 +87,7 @@ shape = SubResource( 3 )
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.221978, 0 )
 shaded = true
 texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+unit_db = 70.0
