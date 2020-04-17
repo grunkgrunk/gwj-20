@@ -12,14 +12,11 @@ func hack():
 	door.open()
 	$Sprite.frame = 1
 	
-
-
-
 func _on_Timer_timeout():
 	door.close()
 	$Sprite.frame = 0
 
 
-func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		hack()
+func reset():
+	$Sprite.frame = 0
+	

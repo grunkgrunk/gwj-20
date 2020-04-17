@@ -3,7 +3,6 @@ extends Area
 
 
 func _ready():
-
 	connect("body_entered", self, "b")
 
 
@@ -23,3 +22,6 @@ func _on_Animation_animation_finished(name):
 
 func catch():
 	print("You lost")
+
+func reset():
+	$Animation.stop()

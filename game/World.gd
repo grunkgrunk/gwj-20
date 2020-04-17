@@ -4,10 +4,12 @@ signal clicked_retry
 
 export(NodePath) var granny_path
 export(NodePath) var dad_path
+export(NodePath) var boy_path
 
 onready var mapping = {
 	"Granny": get_node(granny_path),
-	"Dad": get_node(dad_path)
+	"Dad": get_node(dad_path),
+	"Boy": get_node(boy_path)
 }
 
 

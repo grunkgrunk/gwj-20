@@ -6,11 +6,14 @@ export(PackedScene) var cookie_scene
 func action_1():
 	print("action 1 is op")
 	var c = cookie_scene.instance()
-	c.global_transform =  global_transform.origin
+	c.global_transform.origin =  global_transform.origin
 	emit_signal("object_spawned", c)
 	return true
 	
 
 func action_2():
-	print("hit guard with handbag")
+	for a in $ActionArea.get_overlapping_areas():
+		if a.is_in_group("Computer"):
+			a.hack()
+			return true
 	return false

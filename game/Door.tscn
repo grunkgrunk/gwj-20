@@ -36,7 +36,9 @@ tracks/0/keys = {
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 2.39952, 5.88933, 0.202289 )
 
-[node name="Door" type="Position3D"]
+[node name="Door" type="Position3D" groups=[
+"Actor",
+]]
 script = ExtResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
@@ -44,7 +46,6 @@ anims/CloseDoor = SubResource( 2 )
 anims/OpenDoor = SubResource( 3 )
 
 [node name="Door" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Door"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40863, 4.97538, 0 )

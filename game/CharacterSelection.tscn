@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://CharacterSelection.gd" type="Script" id=1]
 [ext_resource path="res://DadStats.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GrannyStats.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Avatar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BoyStats.tscn" type="PackedScene" id=5]
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
@@ -38,7 +39,7 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 510.0
-margin_bottom = 298.0
+margin_bottom = 197.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 avatar_name = "Granny"
@@ -47,13 +48,24 @@ path_to_stats = NodePath("../../Stats/GrannyStats")
 [node name="Dad" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 302.0
+margin_top = 201.0
 margin_right = 510.0
-margin_bottom = 600.0
+margin_bottom = 398.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 avatar_name = "Dad"
 path_to_stats = NodePath("../../Stats/DadStats")
+
+[node name="Boy" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 402.0
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+avatar_name = "Boy"
+path_to_stats = NodePath("../../Stats/BoyStats")
 
 [node name="Stats" type="Control" parent="HBoxContainer"]
 margin_left = 514.0
@@ -67,3 +79,5 @@ __meta__ = {
 [node name="GrannyStats" parent="HBoxContainer/Stats" instance=ExtResource( 3 )]
 
 [node name="DadStats" parent="HBoxContainer/Stats" instance=ExtResource( 2 )]
+
+[node name="BoyStats" parent="HBoxContainer/Stats" instance=ExtResource( 5 )]

@@ -11,7 +11,7 @@ resource_name = "idle"
 length = 0.1
 
 [sub_resource type="SphereShape" id=3]
-radius = 3.59916
+radius = 4.58517
 
 [node name="Character" type="KinematicBody" groups=[
 "Actor",

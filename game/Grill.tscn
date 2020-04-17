@@ -7,6 +7,7 @@
 radius = 1.8978
 
 [node name="Grill" type="Area" groups=[
+"Actor",
 "Grill",
 ]]
 script = ExtResource( 2 )

@@ -23,7 +23,8 @@ tracks/0/keys = {
 }
 
 [node name="SecurityCam" type="Area" groups=[
-"Grill",
+"Actor",
+"SecurityCam",
 ]]
 transform = Transform( 1, 0, 5.26116e-06, 0, 1, 0, -5.26116e-06, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )

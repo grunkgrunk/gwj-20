@@ -23,7 +23,8 @@ tracks/0/keys = {
 }
 
 [node name="Dog" type="Area" groups=[
-"Grill",
+"Actor",
+"Dog",
 ]]
 script = ExtResource( 2 )
 

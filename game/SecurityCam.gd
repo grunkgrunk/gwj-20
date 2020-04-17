@@ -15,3 +15,6 @@ func catch():
 
 func hit():
 	$AnimationPlayer.play("Rotator")
+	
+func reset():
+	$AnimationPlayer.stop()
