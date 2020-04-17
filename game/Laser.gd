@@ -11,6 +11,10 @@ func start():
 	$Timer.start()
 	hide()
 
+func reset():
+	cancatch = true
+	$Timer.stop()
+
 func _on_Area_body_entered(body):
 	if body.is_in_group("Player") and cancatch:
 		emit_signal("caught",body,name)
