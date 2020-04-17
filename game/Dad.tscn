@@ -2,12 +2,13 @@
 
 [ext_resource path="res://Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Dad.gd" type="Script" id=2]
-[ext_resource path="res://dad.png" type="Texture" id=3]
+[ext_resource path="res://DadCut.png" type="Texture" id=3]
 
 [node name="Dad" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
 [node name="Sprite" parent="Position3D" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 1.1921e-07, 0, -1.1921e-07, 1, 0, 4.0631, -3.59603e-07 )
 texture = ExtResource( 3 )
 
 [node name="Shape" parent="." index="1"]
