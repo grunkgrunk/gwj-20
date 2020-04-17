@@ -29,7 +29,7 @@ func _ready():
 		g.connect("caught",self,"on_caught")
 	for g in get_tree().get_nodes_in_group("SecurityCam"):
 		g.connect("caught",self,"on_caught")
-
+	
 func caught_on_cam(body):
 	on_caught(body)
 
