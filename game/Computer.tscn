@@ -28,6 +28,7 @@ shape = SubResource( 1 )
 [node name="Sprite" type="AnimatedSprite3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15351, 0 )
 billboard = 2
+shaded = true
 frames = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,15 +1,57 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://guard.png" type="Texture" id=1]
 [ext_resource path="res://Guard.gd" type="Script" id=2]
+[ext_resource path="res://walk.tres" type="Animation" id=3]
 
-[sub_resource type="CapsuleShape" id=3]
+[sub_resource type="CapsuleShape" id=1]
 radius = 5.93297
 
 [sub_resource type="Animation" id=2]
 resource_name = "MoveGuard"
 length = 4.0
 loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( -31.4518, 0, -11.5614 ), Vector3( -31.4518, 0, 17.0418 ), Vector3( -10.0434, 0, 18.0491 ), Vector3( -27.6346, 0, 15.6549 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walk (copy)"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0.5, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 0.5, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 5 ), Vector3( 0, 0, 0 ), Vector3( 0, 0, -5 ), Vector3( 0, 0, 0 ) ]
+}
 
 [node name="Guard" type="Area" groups=[
 "Actor",
@@ -19,14 +61,7 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0.929644, 0 )
-shape = SubResource( 3 )
-
-[node name="icon" type="Sprite3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.40557, 0 )
-offset = Vector2( 0, -250 )
-billboard = 2
-shaded = true
-texture = ExtResource( 1 )
+shape = SubResource( 1 )
 
 [node name="Animation" type="AnimationPlayer" parent="."]
 playback_speed = 0.8
@@ -42,6 +77,22 @@ margin_bottom = 14.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../pivot")
+autoplay = "walk (copy)"
+playback_speed = 3.0
+anims/walk = ExtResource( 3 )
+"anims/walk (copy)" = SubResource( 3 )
+
+[node name="pivot" type="Position3D" parent="."]
+
+[node name="icon" type="Sprite3D" parent="pivot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.59136, 0 )
+offset = Vector2( 0, -250 )
+billboard = 2
+shaded = true
+texture = ExtResource( 1 )
 [connection signal="area_entered" from="." to="." method="_on_Guard_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Guard_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
