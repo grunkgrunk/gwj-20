@@ -16,9 +16,10 @@ func reset():
 	$Timer.stop()
 
 func _on_Area_body_entered(body):
+	print("yir")
 	if body.is_in_group("Player") and cancatch:
 		emit_signal("caught",body,name)
-
+		print("player ded")
 
 func _on_Timer_timeout():
 	show()

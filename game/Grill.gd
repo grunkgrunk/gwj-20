@@ -4,8 +4,11 @@ export(NodePath) var doggo
 onready var dog = get_node(doggo)
 
 func start_grill():
-	print("shoud woof")
+	$Sausage.show()
 	dog.go_to_grill()
+	yield(dog.get_node("Animation"), "animation_finished")
+	$Sausage.hide()
+
 
 func reset():
-	pass
+	$Sausage.hide()

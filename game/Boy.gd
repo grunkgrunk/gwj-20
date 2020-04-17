@@ -11,7 +11,7 @@ var has_treasure = false
 func _ready():
 	#._ready()
 	$Position3D/Treasure.hide()
-	$ActionArea.connect("area_entered", self, "_on_area_entered")
+	$TreasureArea.connect("area_entered", self, "_on_area_entered")
 
 func _on_area_entered(a):
 	if a.is_in_group("Treasure") and not has_treasure:

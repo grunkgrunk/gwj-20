@@ -12,5 +12,3 @@ func reset():
 func take():
 	is_taken = true
 	$Sprite3D.hide()
-
-
