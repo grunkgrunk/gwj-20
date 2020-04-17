@@ -22,7 +22,7 @@ texture = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6.79137 )
 
 [node name="CollisionShape" parent="ActionArea" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33504, 3.80448 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33504, -1.01851 )
 
 [node name="RunTimer" type="Timer" parent="." index="6"]
 wait_time = 2.0

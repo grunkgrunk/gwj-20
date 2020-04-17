@@ -23,7 +23,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="SphereShape" id=3]
-radius = 3.66383
+radius = 4.31239
 
 [node name="SecurityCam" type="Area" groups=[
 "Actor",
@@ -37,14 +37,14 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83641, 0 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 10, 0 )
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 6.2136, 0 )
 shaded = true
 texture = ExtResource( 1 )
 
 [node name="Light" type="SpotLight" parent="Sprite"]
 transform = Transform( -7.21427e-08, 1.49509, -1.32843, 8.11935e-08, 1.32843, 1.49509, 0.666667, -2.36848e-15, -3.62046e-08, 0, 0, 0 )
-spot_range = 24.4835
-spot_angle = 16.2641
+spot_range = 17.8446
+spot_angle = 20.5693
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -55,6 +55,6 @@ anims/Rotator = SubResource( 2 )
 [node name="Spot" type="Area" parent="."]
 
 [node name="CollisionShape" type="CollisionShape" parent="Spot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4814, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.2629, 0, -1.55158e-06 )
 shape = SubResource( 3 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

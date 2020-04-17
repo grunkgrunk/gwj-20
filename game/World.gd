@@ -27,6 +27,11 @@ func _ready():
 	
 	for g in get_tree().get_nodes_in_group("Guard"):
 		g.connect("caught",self,"on_caught")
+	for g in get_tree().get_nodes_in_group("SecurityCam"):
+		g.connect("caught",self,"caught_on_cam")
+
+func caught_on_cam(body):
+	on_caught(body)
 
 func _on_used_ability(n, success):
 	$ui/Abilities.use(n, success)
