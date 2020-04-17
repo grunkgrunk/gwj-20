@@ -24,16 +24,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_right = 510.0
-margin_bottom = 600.0
+[node name="VBoxContainer" type="Control" parent="HBoxContainer"]
+margin_left = 92.1202
+margin_top = 6.22433
+margin_right = 602.12
+margin_bottom = 606.224
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -42,16 +41,14 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 510.0
 margin_bottom = 197.0
-size_flags_horizontal = 3
 size_flags_vertical = 3
 avatar_name = "Granny"
 path_to_stats = NodePath("../../Stats/GrannyStats")
 
 [node name="Sprite" parent="HBoxContainer/VBoxContainer/Granny" index="0"]
+position = Vector2( 88.713, 108.888 )
+scale = Vector2( 0.639999, 0.639999 )
 texture = ExtResource( 6 )
-
-[node name="Label" parent="HBoxContainer/VBoxContainer/Granny" index="1"]
-text = "Granny"
 
 [node name="Dad" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -64,8 +61,9 @@ size_flags_vertical = 3
 avatar_name = "Dad"
 path_to_stats = NodePath("../../Stats/DadStats")
 
-[node name="Label" parent="HBoxContainer/VBoxContainer/Dad" index="1"]
-text = "Dad"
+[node name="Sprite" parent="HBoxContainer/VBoxContainer/Dad" index="0"]
+position = Vector2( 91.915, 68.3299 )
+scale = Vector2( 0.639999, 0.639999 )
 
 [node name="Boy" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -79,16 +77,16 @@ avatar_name = "Boy"
 path_to_stats = NodePath("../../Stats/BoyStats")
 
 [node name="Sprite" parent="HBoxContainer/VBoxContainer/Boy" index="0"]
+position = Vector2( 97.2516, 64.0607 )
+scale = Vector2( 0.639999, 0.639999 )
 texture = ExtResource( 7 )
 region_rect = Rect2( 146.741, 206.912, 255.648, 283.61 )
 
-[node name="Label" parent="HBoxContainer/VBoxContainer/Boy" index="1"]
-text = "Boy"
-
 [node name="Stats" type="Control" parent="HBoxContainer"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 393.393
+margin_top = 43.7601
+margin_right = 903.393
+margin_bottom = 643.76
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false

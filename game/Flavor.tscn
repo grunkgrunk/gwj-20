@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sunrise International Demo.otf" type="DynamicFontData" id=1]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[node name="Flavor" type="Label"]
+margin_top = 260.0
+margin_right = 1024.0
+margin_bottom = 332.0
+custom_fonts/font = SubResource( 1 )
+text = "Lorem ipsum dadadadadadadadsjhdlkjsahdklj 
+ajshdalsd 
+akjsdhsad wowo wow amazing boy"

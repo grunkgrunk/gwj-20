@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Stat.tscn" type="PackedScene" id=1]
+[ext_resource path="res://VBoxContainer.gd" type="Script" id=2]
+[ext_resource path="res://Flavor.tscn" type="PackedScene" id=3]
 
 [node name="DadStats" type="Control"]
 anchor_right = 1.0
@@ -12,7 +14,8 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 20
+custom_constants/separation = 65
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -24,35 +27,43 @@ margin_left = 0.0
 margin_top = 0.0
 margin_right = 1024.0
 margin_bottom = 0.0
-stat_name = "Humor"
+stat_name = "Humor              "
 stat_value = 1.0
 
 [node name="Stat" parent="VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 20.0
+margin_top = 65.0
 margin_right = 1024.0
-margin_bottom = 20.0
-stat_name = "Speed "
+margin_bottom = 65.0
+stat_name = "Speed               "
 stat_value = 60.0
 
 [node name="Stat3" parent="VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 40.0
+margin_top = 130.0
 margin_right = 1024.0
-margin_bottom = 40.0
-stat_name = "number of cables"
+margin_bottom = 130.0
+stat_name = "beer                "
 stat_value = 20.0
 
 [node name="Stat4" parent="VBoxContainer" instance=ExtResource( 1 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 0.0
-margin_top = 60.0
+margin_top = 195.0
 margin_right = 1024.0
-margin_bottom = 60.0
-stat_name = "grill mastery"
-stat_value = 100.0
+margin_bottom = 195.0
+stat_name = "grill mastery    "
+
+[node name="Flavor" parent="VBoxContainer" instance=ExtResource( 3 )]
+margin_bottom = 407.0
+text = "A craft beer in one hand. A cheap one in the other.
+ Dad is not only the head of a large crime-family; he is also good at evading taxes.
+
+Abilities:
+1) Grilling (Who wants sausages?)
+2) Dad jokes (if you pretend to laugh, he might not tell it again)"

@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Stat.gd" type="Script" id=1]
+[ext_resource path="res://Sunrise International Demo.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://progress.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 2 )
 
 [node name="Stat" type="Control"]
 anchor_right = 1.0
@@ -13,21 +19,24 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+stat_value = 100.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
-margin_bottom = 14.0
+margin_left = -1.0
+margin_bottom = 34.0
 size_flags_vertical = 0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="HBoxContainer"]
-margin_bottom = 14.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 1 )
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
+[node name="ProgressBar" type="TextureProgress" parent="HBoxContainer"]
 margin_left = 4.0
-margin_right = 1024.0
-margin_bottom = 14.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
+margin_right = 324.0
+margin_bottom = 34.0
+value = 100.0
+texture_progress = ExtResource( 3 )

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Avatar.gd" type="Script" id=1]
 [ext_resource path="res://DadCut.png" type="Texture" id=2]
+[ext_resource path="res://NewFont.tres" type="DynamicFont" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
@@ -17,6 +18,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.639999, 0.639999 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.329412 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=2]
@@ -34,6 +47,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 0.639999, 0.639999 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.329412 ) ]
+}
 
 [node name="Avatar" type="Control"]
 anchor_right = 1.0
@@ -46,17 +71,17 @@ avatar_name = "My Avatar"
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 86.5784, 87.5417 )
-scale = Vector2( 0.82, 0.82 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 92.282, 174.637, 272.687, 270.102 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = -11.3874
-margin_top = 123.635
-margin_right = 196.613
-margin_bottom = 190.635
+[node name="Label" type="Label" parent="Sprite"]
+margin_left = -95.0883
+margin_top = 60.0158
+margin_right = 112.912
+margin_bottom = 127.016
 rect_scale = Vector2( 0.900115, 1.27591 )
+custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0.996078, 0.992157, 0.992157, 1 )
 text = "My Avatar"
 align = 1
@@ -66,6 +91,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
+autoplay = "UnHover"
 playback_speed = 3.0
 anims/Hover = SubResource( 1 )
 anims/UnHover = SubResource( 2 )

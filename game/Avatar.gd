@@ -8,21 +8,23 @@ onready var stats = get_node(path_to_stats)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label.text = avatar_name
+	$Sprite/Label.text = avatar_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Engine.editor_hint:
-		$Label.text = avatar_name
+		$Sprite/Label.text = avatar_name
 
 
 
 func on_select():
-	$Label.text += "!"
+	$Sprite/Label.text += "!"
 	$AnimationPlayer.play("Hover")
+	$Sprite.z_index = 1000
 
 func on_deselect():
 	$AnimationPlayer.play("UnHover")
+	$Sprite.z_index = 0
 	
 

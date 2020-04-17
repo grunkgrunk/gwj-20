@@ -34,7 +34,7 @@ shape = SubResource( 1 )
 [node name="Position3D" type="Position3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Position3D"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.0574, 1.54612 )
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 3.78933, 2.84766 )
 billboard = 2
 shaded = true
 alpha_cut = 1
