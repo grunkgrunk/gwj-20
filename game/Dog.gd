@@ -4,6 +4,7 @@ extends Area
 
 func _ready():
 	connect("body_entered", self, "b")
+	$Animation.connect("animation_finished", self, "anim_end")
 
 
 func b(body):
@@ -15,10 +16,17 @@ func b(body):
 func go_to_grill():
 	$Animation.play("MoveToGrill")
 
-func _on_Animation_animation_finished(name):
-	for b in get_overlapping_bodies():
-		if b.is_in_group("Player"):
-			catch()
+func return_to_rest():
+	$Animation.play("MoveToGrill", true)
+
+func anim_end(name):
+	if name == "ReturnToRest":
+		for b in get_overlapping_bodies():
+			if b.is_in_group("Player"):
+				catch()
+	
+	else:
+		$Animation.play("ReturnToRest")
 
 func catch():
 	print("You lost")

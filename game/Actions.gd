@@ -32,7 +32,7 @@ func _ready():
 	virtual_keyboard = mk_keyboard()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if G.paused:
 		return
 	update()
