@@ -6,10 +6,13 @@ export(NodePath) var granny_path
 export(NodePath) var dad_path
 export(NodePath) var boy_path
 
+var is_gameover = false
+
 var death_reasons = {
 	"Dog": "You where killed by doggoo",
 	"Guard": "The guard spotttet you and he shot you. Maybe give him a cookie?",
 	"SecurityCam": "You got spottet by a camera",
+	"Laser": "You were burnt by very warm laser."
 }
 
 onready var mapping = {
@@ -32,15 +35,16 @@ func _ready():
 	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
 
-func _on_used_ability(n, success):
-	$ui/Abilities.use(n, success)
+func _on_used_ability(n, success, in_control):
+	if in_control:
+		$ui/Abilities.use(n, success)
 	
 
 func get_actors():
 	return get_tree().get_nodes_in_group("Actor")
 
 func _input(e):
-	if e.is_action_pressed("character_select"):
+	if e.is_action_pressed("character_select") and not is_gameover:
 		if ch_select.is_visible():
 			ch_select.hide()
 			unpause()
@@ -53,7 +57,7 @@ func _input(e):
 
 			pause()
 	
-	if e.is_action_pressed("ui_accept"):
+	if e.is_action_pressed("ui_accept") and is_gameover:
 		emit_signal("clicked_retry")
 
 
@@ -79,6 +83,7 @@ func reset():
 		a.reset()
 
 func gameover(killer_name):
+	is_gameover = true
 	pause()
 	$ui/Fader.fade_out()
 	yield($ui/Fader/AnimationPlayer, "animation_finished")
@@ -108,6 +113,7 @@ func on_avatar_chosen(avatar_name):
 func on_caught(body,name):
 	gameover(name)
 	yield(self, "clicked_retry")
+	is_gameover = false
 	$ui/Fader.fade_in()
 	$ui/GameOver.hide()
 	choose_character(body)

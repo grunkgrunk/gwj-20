@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Avatar.gd" type="Script" id=1]
 [ext_resource path="res://DadCut.png" type="Texture" id=2]
 [ext_resource path="res://NewFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://next.wav" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Hover"
@@ -70,7 +71,9 @@ __meta__ = {
 avatar_name = "My Avatar"
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.329412 )
 position = Vector2( 86.5784, 87.5417 )
+scale = Vector2( 0.639999, 0.639999 )
 texture = ExtResource( 2 )
 region_enabled = true
 region_rect = Rect2( 92.282, 174.637, 272.687, 270.102 )
@@ -95,3 +98,8 @@ autoplay = "UnHover"
 playback_speed = 3.0
 anims/Hover = SubResource( 1 )
 anims/UnHover = SubResource( 2 )
+
+[node name="say" type="AudioStreamPlayer" parent="."]
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
