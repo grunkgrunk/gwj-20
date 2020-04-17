@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 G="*res://G.tscn"
 
+[gui]
+
+theme/custom_font="res://NewFont.tres"
+
 [importer_defaults]
 
 texture={
