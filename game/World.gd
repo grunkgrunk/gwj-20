@@ -31,11 +31,6 @@ func _ready():
 	
 	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
-	for g in get_tree().get_nodes_in_group("SecurityCam"):
-		g.connect("caught",self,"on_caught")
-	
-func caught_on_cam(body):
-	on_caught(body)
 
 func _on_used_ability(n, success):
 	$ui/Abilities.use(n, success)
@@ -110,8 +105,8 @@ func on_avatar_chosen(avatar_name):
 	choose_character(c)
 	ch_select.hide()
 	
-func on_caught(body):
-	gameover("Guard")
+func on_caught(body,name):
+	gameover(name)
 	yield(self, "clicked_retry")
 	$ui/Fader.fade_in()
 	$ui/GameOver.hide()
