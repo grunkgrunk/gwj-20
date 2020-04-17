@@ -5,7 +5,7 @@
 [ext_resource path="res://IRLdog.wav" type="AudioStream" id=3]
 
 [sub_resource type="SphereShape" id=1]
-radius = 1.8978
+radius = 3.53484
 
 [sub_resource type="Animation" id=2]
 resource_name = "MoveToGrill"
