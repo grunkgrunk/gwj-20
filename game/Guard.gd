@@ -17,6 +17,7 @@ func _on_Guard_body_entered(body):
 
 func _on_Guard_area_entered(area):
 	if area.is_in_group("Cookie"):
+		$AnimationPlayer.play("Fall")
 		aware = false
 		area.queue_free()
 		$Timer.start()
@@ -38,6 +39,8 @@ func _process(delta):
 	$Label.text = str(aware)
 
 func _on_Timer_timeout():
+	$AnimationPlayer.play("Stand")
+	$AnimationPlayer.queue("walk (copy)")
 	aware = true
 	unpause()
 
