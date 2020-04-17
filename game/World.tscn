@@ -16,7 +16,7 @@
 [ext_resource path="res://Boy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=15]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "ReturnToRest"
 length = 3.0
 tracks/0/type = "value"
@@ -32,7 +32,7 @@ tracks/0/keys = {
 "values": [ Vector3( 11.4994, 0, 11.828 ), Vector3( 0, 0, 11.828 ), Vector3( 0, 8.73506, 6.56434 ), Vector3( 0, 0, 0 ) ]
 }
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 background_mode = 1
 
 [node name="World" type="Spatial"]
@@ -68,11 +68,8 @@ doorpath = NodePath("../Door")
 [node name="Dog" parent="Characters" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5471, 2.21861, 20.241 )
 
-[node name="Sprite3D" parent="Characters/Dog/Position3D" index="0"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 2.0574, 1.54612 )
-
 [node name="Animation" parent="Characters/Dog" index="2"]
-anims/ReturnToRest = SubResource( 2 )
+anims/ReturnToRest = SubResource( 1 )
 
 [node name="SecurityCam" parent="Characters" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8721, -3.60891, 7.4422 )
@@ -98,7 +95,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -73.4119, 0.225018, -7.20853 )
 transform = Transform( -0.999668, 0, -0.0257579, 0, 1, 0, 0.0257579, 0, -0.999668, -1.09242, 0, -12.8413 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.992302, 0.123844, 0, -0.123844, 0.992302, 0, 26.272, 0 )
