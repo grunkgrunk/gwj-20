@@ -1,26 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://doggo.png" type="Texture" id=1]
 [ext_resource path="res://Dog.gd" type="Script" id=2]
 
 [sub_resource type="SphereShape" id=1]
 radius = 1.8978
-
-[sub_resource type="Animation" id=2]
-resource_name = "MoveToGrill"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1.5, 3, 5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, -10.6046 ), Vector3( 0, 0, -10.6046 ), Vector3( 0, 0, 0 ) ]
-}
 
 [node name="Dog" type="Area" groups=[
 "Actor",
@@ -31,10 +15,6 @@ script = ExtResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )
 
-[node name="Animation" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite3D")
-anims/MoveToGrill = SubResource( 2 )
-
 [node name="Position3D" type="Position3D" parent="."]
 
 [node name="Sprite3D" type="Sprite3D" parent="Position3D"]
@@ -42,4 +22,3 @@ transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
 billboard = 2
 shaded = true
 texture = ExtResource( 1 )
-[connection signal="animation_finished" from="Animation" to="." method="_on_Animation_animation_finished"]
