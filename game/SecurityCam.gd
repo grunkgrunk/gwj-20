@@ -2,7 +2,7 @@ extends Area
 
 
 func _ready():
-	connect("body_entered", self, "b")
+	$Spot.connect("body_entered", self, "b")
 
 
 func b(body):

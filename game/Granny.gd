@@ -3,8 +3,11 @@ extends "res://Character.gd"
 signal object_spawned
 export(PackedScene) var cookie_scene
 
+
+var ab_name_1 = "Cookie"
+var ab_name_2 = "Hack"
+
 func action_1():
-	print("action 1 is op")
 	var c = cookie_scene.instance()
 	c.global_transform.origin =  global_transform.origin
 	emit_signal("object_spawned", c)

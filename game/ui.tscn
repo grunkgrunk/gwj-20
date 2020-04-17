@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Fader.gd" type="Script" id=1]
 [ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Abilities.gd" type="Script" id=3]
+[ext_resource path="res://Clock.gd" type="Script" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -38,6 +40,74 @@ tracks/0/keys = {
 [node name="CharacterSelection" parent="." instance=ExtResource( 2 )]
 visible = false
 
+[node name="Abilities" type="HBoxContainer" parent="."]
+margin_left = 440.339
+margin_top = 557.5
+margin_right = 678.339
+margin_bottom = 597.5
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="C" type="Control" parent="Abilities"]
+margin_right = 117.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability" type="Label" parent="Abilities/C"]
+margin_left = 1.422
+margin_top = 14.5044
+margin_right = 41.422
+margin_bottom = 45.5044
+text = "Hack
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Abilities/C"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "( C )
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="V" type="Control" parent="Abilities"]
+margin_left = 121.0
+margin_right = 238.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ability" type="Label" parent="Abilities/V"]
+margin_left = 1.422
+margin_top = 14.5044
+margin_right = 41.422
+margin_bottom = 45.5044
+text = "Hack
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Abilities/V"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "( V )
+
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fader" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,6 +121,7 @@ anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="Fader"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
@@ -62,6 +133,16 @@ __meta__ = {
 margin_right = 73.0
 margin_bottom = 14.0
 text = "Game Over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Clock" type="Label" parent="."]
+margin_left = 940.173
+margin_top = 42.0361
+margin_right = 980.173
+margin_bottom = 56.0361
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

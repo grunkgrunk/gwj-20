@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal used_ability
+
 var movespeed = 10
 
 onready var actions = $Actions
@@ -36,8 +38,10 @@ func act(evt):
 		return
 	if evt.action == "action_1" and not action_1_used:
 		action_1_used = action_1()
+		emit_signal("used_ability", 1, action_1_used)
 	if evt.action == "action_2" and not action_2_used:
 		action_2_used = action_2()
+		emit_signal("used_ability", 2, action_2_used)
 		
 func action_1():
 	print("dad humor")

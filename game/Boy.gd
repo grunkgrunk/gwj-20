@@ -3,6 +3,9 @@ extends "res://Character.gd"
 signal object_spawned
 export(PackedScene) var cookie_scene
 
+var ab_name_1 = "Slingshot"
+var ab_name_2 = "Sprint"   
+
 func action_1():
 	print("Shoot with slingshot")
 	for a in $ActionArea.get_overlapping_areas():

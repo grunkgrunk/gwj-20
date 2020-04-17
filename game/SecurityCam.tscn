@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Camera.png" type="Texture" id=1]
 [ext_resource path="res://SecurityCam.gd" type="Script" id=2]
 
-[sub_resource type="SphereShape" id=1]
-radius = 3.66383
+[sub_resource type="SphereShape" id=3]
+radius = 4.69085
 
 [sub_resource type="Animation" id=2]
 resource_name = "Rotator"
@@ -22,16 +22,19 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 1440, 0 ), Vector3( 0, 2520, 0 ), Vector3( 0, 3240, 0 ), Vector3( 0, 3600, 0 ), Vector3( 0, 3960, 0 ) ]
 }
 
+[sub_resource type="SphereShape" id=1]
+radius = 3.66383
+
 [node name="SecurityCam" type="Area" groups=[
 "Actor",
 "SecurityCam",
 ]]
-transform = Transform( 1, 0, 5.26116e-06, 0, 1, 0, -5.26116e-06, 0, 1, 0, 0, 0 )
+transform = Transform( 1, 0, 6.99382e-07, 0, 1, 0, -6.99382e-07, 0, 1, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4814, 0, 0 )
-shape = SubResource( 1 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83641, 0 )
+shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 1.5, 0, 10, 0 )
@@ -47,4 +50,10 @@ wait_time = 2.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Rotator = SubResource( 2 )
+
+[node name="Spot" type="Area" parent="."]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spot"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.4814, 0, 0 )
+shape = SubResource( 1 )
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

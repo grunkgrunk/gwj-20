@@ -16,12 +16,21 @@ onready var mapping = {
 # Called when the node enters the scene tree for the first time.
 onready var ch_select = $ui/CharacterSelection
 
+
+
 func _ready():
 	ch_select.hide()
 	ch_select.connect("avatar_chosen", self, "on_avatar_chosen")
 	
+	for p in get_tree().get_nodes_in_group("Player"):
+		p.connect("used_ability", self, "_on_used_ability")
+	
 	for g in get_tree().get_nodes_in_group("Guard"):
 		g.connect("caught",self,"on_caught")
+
+func _on_used_ability(n, success):
+	$ui/Abilities.use(n, success)
+	
 
 func get_actors():
 	return get_tree().get_nodes_in_group("Actor")
@@ -48,6 +57,7 @@ func unpause():
 
 
 func reset():
+	$ui/Abilities.reset()
 	G.current_time = 0
 	for a in get_actors():
 		a.reset()
@@ -61,6 +71,9 @@ func choose_character(c):
 	unpause()
 	c.actions.is_player_in_control = true
 	c.actions.record = []
+	
+	$ui/Abilities/C/Ability.text = c.ab_name_1
+	$ui/Abilities/V/Ability.text = c.ab_name_2
 	$ui/Fader.reset()
 	$Camera.target = c
 
