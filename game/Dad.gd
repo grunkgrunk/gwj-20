@@ -11,7 +11,12 @@ func _ready():
 
 
 func action_1():
-	print("dad humor")
+	print("Press button")
+	for a in $ActionArea.get_overlapping_areas():
+		if a.is_in_group("Button"):
+			a.press()
+			return true
+	return false
 
 func action_2():
 	for a in $ActionArea.get_overlapping_areas():
