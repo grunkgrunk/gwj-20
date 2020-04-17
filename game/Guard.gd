@@ -37,10 +37,6 @@ func reset():
 	aware = true
 	$Animation.stop(true)
 	$Animation.play("MoveGuard")
-	
-
-func _process(delta):
-	$Label.text = str(aware)
 
 func _on_Timer_timeout():
 	$AnimationPlayer.play("Stand")

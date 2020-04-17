@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://CharacterSelection.gd" type="Script" id=1]
 [ext_resource path="res://DadStats.tscn" type="PackedScene" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://BoyStats.tscn" type="PackedScene" id=5]
 [ext_resource path="res://OldLadyCut.png" type="Texture" id=6]
 [ext_resource path="res://BoyCut.png" type="Texture" id=7]
+[ext_resource path="res://juhu.wav" type="AudioStream" id=8]
+[ext_resource path="res://daddy.wav" type="AudioStream" id=9]
+[ext_resource path="res://boy.wav" type="AudioStream" id=10]
 
 [node name="CharacterSelection" type="Control"]
 anchor_right = 1.0
@@ -47,8 +50,10 @@ path_to_stats = NodePath("../../Stats/GrannyStats")
 
 [node name="Sprite" parent="HBoxContainer/VBoxContainer/Granny" index="0"]
 position = Vector2( 88.713, 108.888 )
-scale = Vector2( 0.639999, 0.639999 )
 texture = ExtResource( 6 )
+
+[node name="say" parent="HBoxContainer/VBoxContainer/Granny" index="2"]
+stream = ExtResource( 8 )
 
 [node name="Dad" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -63,7 +68,9 @@ path_to_stats = NodePath("../../Stats/DadStats")
 
 [node name="Sprite" parent="HBoxContainer/VBoxContainer/Dad" index="0"]
 position = Vector2( 91.915, 68.3299 )
-scale = Vector2( 0.639999, 0.639999 )
+
+[node name="say" parent="HBoxContainer/VBoxContainer/Dad" index="2"]
+stream = ExtResource( 9 )
 
 [node name="Boy" parent="HBoxContainer/VBoxContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
@@ -78,9 +85,11 @@ path_to_stats = NodePath("../../Stats/BoyStats")
 
 [node name="Sprite" parent="HBoxContainer/VBoxContainer/Boy" index="0"]
 position = Vector2( 97.2516, 64.0607 )
-scale = Vector2( 0.639999, 0.639999 )
 texture = ExtResource( 7 )
 region_rect = Rect2( 146.741, 206.912, 255.648, 283.61 )
+
+[node name="say" parent="HBoxContainer/VBoxContainer/Boy" index="2"]
+stream = ExtResource( 10 )
 
 [node name="Stats" type="Control" parent="HBoxContainer"]
 margin_left = 393.393

@@ -18,6 +18,7 @@ radius = 4.58517
 "Actor",
 "Player",
 ]]
+collision_mask = 2
 
 [node name="Position3D" type="Position3D" parent="."]
 

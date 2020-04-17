@@ -18,9 +18,12 @@ func _ready():
 func on_select():
 	$AnimationPlayer.play("Hover")
 	$Sprite.z_index = 1000
+	$click.play()
 
 func on_deselect():
 	$AnimationPlayer.play("UnHover")
 	$Sprite.z_index = 0
 	
 
+func say():
+	$say.play()

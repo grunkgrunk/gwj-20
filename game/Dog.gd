@@ -34,5 +34,6 @@ func catch():
 	print("You lost")
 
 func reset():
+	return_to_rest()
 	$Animation.seek(0,true)
 	$Animation.stop()
