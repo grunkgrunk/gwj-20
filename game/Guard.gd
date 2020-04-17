@@ -25,8 +25,11 @@ func _on_Guard_area_entered(area):
 		
 func pause():
 	$Animation.stop(false)
+	aware = false
+	print(name)
 	
 func unpause():
+	aware = true
 	$Animation.play("MoveGuard")
 
 func reset():

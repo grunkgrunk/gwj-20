@@ -16,3 +16,6 @@ func _ready():
 func _process(delta):
 	if target:
 		transform.origin = transform.origin.linear_interpolate(target.global_transform.origin + offset, 0.1)
+
+func hard_set():
+	transform.origin = target.global_transform.origin + offset

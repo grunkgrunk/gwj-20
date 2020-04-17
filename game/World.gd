@@ -7,7 +7,9 @@ export(NodePath) var dad_path
 export(NodePath) var boy_path
 
 var death_reasons = {
-	"Dog": "You "
+	"Dog": "You where killed by doggoo",
+	"Guard": "The guard spotttet you and he shot you. Maybe give him a cookie?",
+	"SecurityCam": "You got spottet by a camera",
 }
 
 onready var mapping = {
@@ -43,24 +45,30 @@ func _input(e):
 			ch_select.hide()
 			unpause()
 			$ui/Abilities.show()
-
+			$ui/Clock.show()
 		else:
 			ch_select.show()
 			$ui/Abilities.hide()
+			$ui/Clock.hide()
 
 			pause()
 	
 	if e.is_action_pressed("ui_accept"):
-		gameover()
 		emit_signal("clicked_retry")
 
 
 func pause():
 	G.paused = true
+	for a in get_actors():
+		if a.has_method("pause"):
+			a.pause()
 
 
 func unpause():
 	G.paused = false
+	for a in get_actors():
+		if a.has_method("unpause"):
+			a.unpause()
 
 
 func reset():
@@ -70,11 +78,13 @@ func reset():
 	for a in get_actors():
 		a.reset()
 
-func gameover():
+func gameover(killer_name):
+	pause()
 	$ui/Fader.fade_out()
 	yield($ui/Fader/AnimationPlayer, "animation_finished")
 	$ui/GameOver.show()
-	yield(self, "clicked_retry")
+	$ui/GameOver/Reason.text = death_reasons[killer_name]
+
 	
 	
 func choose_character(c):
@@ -88,6 +98,7 @@ func choose_character(c):
 	$ui/Abilities.show()
 	$ui/Fader.reset()
 	$Camera.target = c
+	$Camera.hard_set()
 
 func on_avatar_chosen(avatar_name):
 	var c = mapping[avatar_name] 
@@ -95,6 +106,10 @@ func on_avatar_chosen(avatar_name):
 	ch_select.hide()
 	
 func on_caught(body):
-	gameover()
+	gameover("Guard")
+	yield(self, "clicked_retry")
+	$ui/Fader.fade_in()
+	$ui/GameOver.hide()
 	choose_character(body)
+	unpause()
 

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Fader.gd" type="Script" id=1]
 [ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Abilities.gd" type="Script" id=3]
 [ext_resource path="res://Clock.gd" type="Script" id=4]
-[ext_resource path="res://AbilityFont.tres" type="DynamicFont" id=5]
+[ext_resource path="res://font.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://AbilityFont.tres" type="DynamicFont" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -37,6 +38,12 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 5 )
 
 [node name="ui" type="CanvasLayer"]
 
@@ -73,7 +80,7 @@ margin_left = -1.02151
 margin_top = 21.835
 margin_right = 49.9785
 margin_bottom = 64.835
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "Hack
 "
 __meta__ = {
@@ -83,7 +90,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/C"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "( C )
 "
 __meta__ = {
@@ -104,7 +111,7 @@ margin_left = 2.23651
 margin_top = 23.464
 margin_right = 53.2365
 margin_bottom = 66.464
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "Hack
 "
 __meta__ = {
@@ -114,7 +121,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Abilities/V"]
 margin_right = 40.0
 margin_bottom = 14.0
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 text = "( V )
 
 "
@@ -148,7 +155,7 @@ margin_left = 940.173
 margin_top = 41.2216
 margin_right = 980.173
 margin_bottom = 61.2216
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -163,3 +170,13 @@ text = "Game Over"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Reason" type="Label" parent="GameOver"]
+margin_left = 5.36807
+margin_top = 104.892
+margin_right = 381.368
+margin_bottom = 175.892
+custom_fonts/font = SubResource( 3 )
+text = "Lorem ipsum reson reason son son son dsadkjsahdlksadlkjashkashklhsahdlkjsad"
+align = 1
+autowrap = true
