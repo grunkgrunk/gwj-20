@@ -51,7 +51,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 3, 0 )
 [node name="test" parent="." instance=ExtResource( 8 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999092, 0.0142892, -0.0401288, 0, 0.942058, 0.335451, 0.042597, -0.335147, 0.941203, -79.7786, 11.6902, 14.031 )
+transform = Transform( 0.999092, 0.0142892, -0.0401288, 0, 0.942058, 0.335451, 0.042597, -0.335147, 0.941203, -79.7786, 11.6902, 8.9027 )
 current = true
 script = ExtResource( 6 )
 inital_target_path = NodePath("../Characters/Granny")
@@ -87,7 +87,7 @@ anims/ReturnToRest = SubResource( 1 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8721, -3.60891, 7.4422 )
 
 [node name="Guard" parent="Characters" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.4518, 0, -11.5614 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, -11.561 )
 movespeed = 1.0
 
 [node name="Animation" parent="Characters/Guard" index="1"]
