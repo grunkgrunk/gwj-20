@@ -17,7 +17,7 @@ animations = [ {
 
 [node name="Button" type="Area" groups=[
 "Actor",
-"Computer",
+"Button",
 ]]
 script = ExtResource( 1 )
 
