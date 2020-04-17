@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Intro.gd" type="Script" id=1]
+
+[node name="Intro" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 144.0
+margin_top = 134.0
+margin_right = -148.0
+margin_bottom = -164.0
+text = "Hello"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -15,10 +15,11 @@ func _ready():
 	#if Engine.editor_hint:
 	#	$Sprite/Label.text = avatar_name
 
-func on_select():
+func on_select(mute):
 	$AnimationPlayer.play("Hover")
 	$Sprite.z_index = 1000
-	$click.play()
+	if not mute:
+		$click.play()
 
 func on_deselect():
 	$AnimationPlayer.play("UnHover")

@@ -14,7 +14,7 @@ onready var stats = $HBoxContainer/Stats.get_children()
 func _ready():
 	for s in stats:
 		s.hide()
-	show_info(avatars[curr])
+	show_info(avatars[curr], true)
 	
 
 func _input(event):
@@ -39,9 +39,9 @@ func _input(event):
 	
 	
 	
-func show_info(avatar):
+func show_info(avatar, mute=false):
 	var s = avatar.stats
-	avatar.on_select()
+	avatar.on_select(mute)
 	s.show()
 
 func hide_info(avatar):
