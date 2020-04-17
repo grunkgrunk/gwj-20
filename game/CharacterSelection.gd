@@ -2,7 +2,6 @@ extends Control
 
 signal avatar_chosen
 
-
 var curr = 0
 
 var new = false
@@ -27,9 +26,9 @@ func _input(event):
 	if up or down:
 		hide_info(avatars[curr])
 		if up:
-			curr += 1
-		if down:
 			curr -= 1
+		if down:
+			curr += 1
 
 		curr = curr % len(avatars)		
 		show_info(avatars[curr])

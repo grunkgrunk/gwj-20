@@ -37,6 +37,13 @@ tracks/0/keys = {
 
 [node name="ui" type="CanvasLayer"]
 
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="CharacterSelection" parent="." instance=ExtResource( 2 )]
 visible = false
 

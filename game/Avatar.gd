@@ -20,7 +20,9 @@ func _process(delta):
 
 func on_select():
 	$Label.text += "!"
+	$AnimationPlayer.play("Hover")
 
 func on_deselect():
-	pass
+	$AnimationPlayer.play("UnHover")
+	
 

@@ -10,15 +10,19 @@ var has_treasure = false
 
 func _ready():
 	._ready()
+	$Position3D/Treasure.hide()
 	$ActionArea.connect("area_entered", self, "_on_area_entered")
 
 func _on_area_entered(a):
-	if a.is_in_group("Treasure"):
+	if a.is_in_group("Treasure") and not has_treasure:
 		a.take()
-		
+		has_treasure = true
+		$Position3D/Treasure.show()
+
 
 func reset():
 	has_treasure = false
+	$Position3D/Treasure.hide()
 	.reset()
 
 func action_1():

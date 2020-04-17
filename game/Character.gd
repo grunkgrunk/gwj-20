@@ -22,10 +22,10 @@ func _ready():
 func _process(delta):
 	var m = actions.move_direction()
 	if m != Vector3():
-		var cur = Quat(transform.basis)
+		var cur = Quat($SpotLight.transform.basis)
 		var target = Quat(Vector3(0,atan2(-m.z, m.x) - PI / 2,0))
 		var smooth = cur.slerp(target, 0.2)
-		transform.basis = Basis(smooth)
+		$SpotLight.transform.basis = Basis(smooth)
 	#rotation.y = slerp(rotation.y, atan2(-m.z, m.x) - PI / 2, 0.5)
 
 	if m.length()>0:
