@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Dad.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui.tscn" type="PackedScene" id=2]
@@ -15,13 +15,14 @@
 [ext_resource path="res://Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Boy.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=15]
-[ext_resource path="res://IRLdog.wav" type="AudioStream" id=16]
+[ext_resource path="res://WallSolid.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Tiles.meshlib" type="MeshLibrary" id=17]
 [ext_resource path="res://Treasure.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Grass.tscn" type="PackedScene" id=19]
 [ext_resource path="res://LaserUgly.png" type="Texture" id=20]
 [ext_resource path="res://Laser.gd" type="Script" id=21]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Tree.tscn" type="PackedScene" id=23]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ReturnToRest"
@@ -57,18 +58,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 3, 0 )
 [node name="test" parent="." instance=ExtResource( 8 )]
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.999092, 0.0142892, -0.0401288, 0, 0.942058, 0.335451, 0.042597, -0.335147, 0.941203, -28.472, 11.6902, 49.2797 )
+transform = Transform( 0.999092, 0.0142892, -0.0401288, 0, 0.942058, 0.335451, 0.042597, -0.335147, 0.941203, -47.6956, 11.6902, 19.9656 )
 current = true
 script = ExtResource( 6 )
 inital_target_path = NodePath("../Characters/Granny")
 
 [node name="SpotLight" type="SpotLight" parent="Camera"]
-light_energy = 0.2
-spot_range = 73.9583
+light_energy = 0.1
+spot_range = 651.09
 spot_angle = 40.4977
 
 [node name="Ground" parent="." instance=ExtResource( 8 )]
-transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
+transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, -0.839754, 0.518726, -0.700634 )
 
 [node name="ui" parent="." instance=ExtResource( 2 )]
 
@@ -86,14 +87,8 @@ doorpath = NodePath("../Door")
 [node name="Dog" parent="Characters" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.5471, 2.21861, 20.241 )
 
-[node name="Sprite3D" parent="Characters/Dog/Position3D" index="0"]
-transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 8.59068, 6.45584 )
-
 [node name="Animation" parent="Characters/Dog" index="2"]
 anims/ReturnToRest = SubResource( 1 )
-
-[node name="AudioStreamPlayer2D" parent="Characters/Dog" index="3"]
-stream = ExtResource( 16 )
 
 [node name="SecurityCam" parent="Characters" instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 22.7031, 0.396426, 3.43409 )
@@ -106,13 +101,13 @@ autoplay = "MoveGuard"
 playback_speed = 0.2
 
 [node name="Boy" parent="Characters" instance=ExtResource( 14 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.1681, -0.0502443, 34.1314 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -50.3917, 0.369853, 4.81725 )
 
 [node name="Granny" parent="Characters" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.1199, 0.372666, 37.9273 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -46.3435, 0.792763, 8.61315 )
 
 [node name="Dad" parent="Characters" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.1053, 0.225018, 33.1685 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -41.3289, 0.645115, 3.85436 )
 
 [node name="Door" parent="Characters" instance=ExtResource( 13 )]
 transform = Transform( -0.999668, 0, -0.0257579, 0, 1, 0, 0.0257579, 0, -0.999668, -1.09242, 0, -15.8413 )
@@ -170,39 +165,23 @@ region_rect = Rect2( 0, 0, 4000, 1000 )
 
 [node name="DebugLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.292068, -0.849331, 0.439696, 0.128683, 0.49046, 0.861911, -0.947701, -0.195156, 0.252542, 0, 11.233, 0 )
-visible = false
+
+[node name="Spatial" type="Spatial" parent="."]
+
+[node name="WallSolid" parent="Spatial" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7123, 0, 24.7347 )
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource( 17 )
 data = {
-"cells": PoolIntArray( 11, 0, 131072, 18, 0, 537001984, 65517, 0, 0, 65526, 0, 131072, 65529, 0, 0, 65532, 0, 0, 65535, 0, 131072, 11, 1, 131072, 18, 1, 131072, 65517, 1, 0, 65526, 1, 131072, 65529, 1, 0, 65532, 1, 0, 65535, 1, 131072, 11, 2, 131072, 18, 2, 131072, 65517, 2, 0, 65526, 2, 131072, 65529, 2, 0, 65532, 2, 0, 65535, 2, 131072, 11, 3, 131072, 18, 3, 131072, 65517, 3, 0, 65526, 3, 131072, 65529, 3, 0, 65532, 3, 0, 65535, 3, 131072, 11, 4, 131072, 18, 4, 131072, 65517, 4, 0, 65526, 4, 131072, 65529, 4, 0, 65535, 4, 131072, 11, 5, 131072, 18, 5, 131072, 65517, 5, 0, 65526, 5, 131072, 65529, 5, 0, 65535, 5, 131072, 0, 6, 131072, 1, 6, 131072, 2, 6, 131072, 3, 6, 131072, 4, 6, 131072, 5, 6, 131072, 6, 6, 131072, 7, 6, 131072, 8, 6, 131072, 9, 6, 131072, 10, 6, 131072, 11, 6, 131072, 18, 6, 131072, 65517, 6, 0, 65526, 6, 131072, 65529, 6, 0, 65530, 6, 0, 65531, 6, 0, 65532, 6, 0, 65533, 6, 0, 65534, 6, 0, 65535, 6, 131072, 18, 7, 537001984, 65517, 7, 0, 18, 8, 131072, 65517, 8, 0, 18, 9, 537001984, 65517, 9, 536870912, 18, 10, 131072, 65517, 10, 0, 18, 11, 131072, 65517, 11, 536870912, 3, 12, 131072, 4, 12, 536870912, 5, 12, 131072, 6, 12, 537001984, 7, 12, 537001984, 8, 12, 131072, 9, 12, 131072, 10, 12, 131072, 11, 12, 537001984, 12, 12, 131072, 13, 12, 131072, 14, 12, 131072, 15, 12, 131072, 16, 12, 131072, 17, 12, 131072, 18, 12, 131072, 65517, 12, 0, 65518, 12, 0, 65519, 12, 536870912, 65520, 12, 0, 65521, 12, 0, 65522, 12, 0, 65523, 12, 0, 65524, 12, 0, 65525, 12, 0, 65526, 12, 0, 65527, 12, 0, 65528, 12, 0, 65529, 12, 1073741824, 65530, 12, 0, 65531, 12, 0, 65532, 12, 0, 65533, 12, 0, 0, 65523, 131072, 1, 65523, 131072, 2, 65523, 131072, 3, 65523, 131072, 4, 65523, 131072, 5, 65523, 131072, 6, 65523, 131072, 7, 65523, 131072, 8, 65523, 131072, 9, 65523, 537001984, 10, 65523, 131072, 11, 65523, 131072, 12, 65523, 131072, 13, 65523, 131072, 14, 65523, 131072, 15, 65523, 131072, 16, 65523, 131072, 17, 65523, 131072, 65518, 65523, 131072, 65519, 65523, -536739840, 65520, 65523, 131072, 65521, 65523, 537001984, 65522, 65523, 131072, 65523, 65523, 131072, 65524, 65523, 131072, 65525, 65523, 131072, 65526, 65523, 131072, 65527, 65523, 131072, 65528, 65523, 131072, 65529, 65523, 131072, 65530, 65523, 131072, 65531, 65523, 131072, 65532, 65523, 131072, 65533, 65523, 131072, 65534, 65523, 131072, 65535, 65523, 131072, 11, 65524, 131072, 18, 65524, 131072, 65517, 65524, 1073872896, 65535, 65524, 537001984, 11, 65525, 537001984, 18, 65525, 131072, 65517, 65525, 131072, 65535, 65525, 131072, 11, 65526, 131072, 18, 65526, 131072, 65517, 65526, 537001984, 11, 65527, 537001984, 18, 65527, 131072, 65517, 65527, 131072, 11, 65528, 131072, 18, 65528, 537001984, 65517, 65528, 537001984, 65535, 65528, 537001984, 11, 65529, 537001984, 18, 65529, 537001984, 65517, 65529, 536870912, 65535, 65529, 537001984, 11, 65530, 537001984, 18, 65530, 537001984, 65517, 65530, 536870912, 65526, 65530, 537001984, 65527, 65530, 537001984, 65528, 65530, 537001984, 65529, 65530, 537001984, 65530, 65530, 537001984, 65531, 65530, 537001984, 65532, 65530, 537001984, 65533, 65530, 537001984, 65534, 65530, 537001984, 65535, 65530, 537001984, 11, 65531, 1073872896, 18, 65531, 1610743808, 65517, 65531, 536870912, 65526, 65531, 537001984, 65535, 65531, 1610743808, 11, 65532, 131072, 18, 65532, 1610743808, 65517, 65532, 0, 65526, 65532, 1073872896, 65535, 65532, 1610743808, 11, 65533, 1610743808, 18, 65533, 1610743808, 65517, 65533, 1610612736, 65526, 65533, 1073872896, 65535, 65533, 1610743808, 11, 65534, 131072, 18, 65534, 1073872896, 65517, 65534, 0, 65526, 65534, 1610743808, 65529, 65534, 1610612736, 65530, 65534, 1610612736, 65531, 65534, 1610612736, 65532, 65534, 0, 65535, 65534, 1610743808, 11, 65535, 131072, 18, 65535, 1610743808, 65517, 65535, 1610612736, 65526, 65535, 1610743808, 65529, 65535, 1610612736, 65532, 65535, 536870912, 65535, 65535, 131072 )
+"cells": PoolIntArray( 11, 0, 131072, 18, 0, 131072, 65517, 0, 0, 65526, 0, 131072, 65529, 0, 0, 65532, 0, 0, 65535, 0, 131072, 11, 1, 131072, 18, 1, 131072, 65517, 1, 0, 65526, 1, 131072, 65529, 1, 0, 65532, 1, 0, 65535, 1, 131072, 11, 2, 131072, 18, 2, 131072, 65517, 2, 0, 65526, 2, 131072, 65529, 2, 0, 65532, 2, 0, 65535, 2, 537001984, 11, 3, 131072, 18, 3, 537001984, 65517, 3, 0, 65526, 3, 131072, 65529, 3, 0, 65532, 3, 0, 65535, 3, 131072, 11, 4, 131072, 18, 4, 131072, 65517, 4, 0, 65526, 4, 131072, 65529, 4, 0, 65535, 4, 131072, 11, 5, 131072, 18, 5, 537001984, 65517, 5, 0, 65526, 5, 537001984, 65529, 5, 536870912, 65535, 5, 131072, 0, 6, 131072, 1, 6, 131072, 2, 6, 131072, 3, 6, 131072, 4, 6, 131072, 5, 6, 537001984, 6, 6, 131072, 7, 6, 131072, 8, 6, 131072, 9, 6, 131072, 10, 6, 131072, 11, 6, 131072, 18, 6, 131072, 65517, 6, 0, 65526, 6, 131072, 65529, 6, 0, 65530, 6, 0, 65531, 6, 0, 65532, 6, 0, 65533, 6, 0, 65534, 6, 0, 65535, 6, 131072, 18, 7, 131072, 65517, 7, 0, 18, 8, 131072, 65517, 8, 0, 18, 9, 131072, 65517, 9, 0, 18, 10, 131072, 65517, 10, 0, 18, 11, 131072, 65517, 11, 0, 3, 12, 131072, 4, 12, 0, 5, 12, 131072, 6, 12, 131072, 7, 12, 131072, 8, 12, 131072, 9, 12, 131072, 10, 12, 131072, 11, 12, 131072, 12, 12, 131072, 13, 12, 131072, 14, 12, 131072, 15, 12, 131072, 16, 12, 131072, 17, 12, 131072, 18, 12, 131072, 65517, 12, 0, 65518, 12, 0, 65519, 12, 0, 65520, 12, 0, 65521, 12, 0, 65522, 12, 0, 65523, 12, 0, 65524, 12, 0, 65525, 12, 0, 65526, 12, 0, 65527, 12, 0, 65528, 12, 0, 65529, 12, 0, 65530, 12, 0, 65531, 12, 0, 65532, 12, 0, 65533, 12, 0, 0, 65523, 131072, 1, 65523, 131072, 2, 65523, 131072, 3, 65523, 131072, 4, 65523, 131072, 5, 65523, 131072, 6, 65523, 131072, 7, 65523, 131072, 8, 65523, 131072, 9, 65523, 131072, 10, 65523, 131072, 11, 65523, 131072, 12, 65523, 131072, 13, 65523, 131072, 14, 65523, 131072, 15, 65523, 131072, 16, 65523, 131072, 17, 65523, 131072, 65518, 65523, 131072, 65519, 65523, 131072, 65520, 65523, 131072, 65521, 65523, 131072, 65522, 65523, 131072, 65523, 65523, 131072, 65524, 65523, 131072, 65525, 65523, 131072, 65526, 65523, 131072, 65527, 65523, 131072, 65528, 65523, 131072, 65529, 65523, 131072, 65530, 65523, 131072, 65531, 65523, 131072, 65532, 65523, 131072, 65533, 65523, 131072, 65534, 65523, 131072, 65535, 65523, 131072, 11, 65524, 131072, 18, 65524, 131072, 65517, 65524, 131072, 65535, 65524, 131072, 11, 65525, 131072, 18, 65525, 131072, 65517, 65525, 131072, 65535, 65525, 131072, 11, 65526, 131072, 18, 65526, 131072, 65517, 65526, 131072, 11, 65527, 131072, 18, 65527, 131072, 65517, 65527, 131072, 11, 65528, 131072, 18, 65528, 131072, 65517, 65528, 131072, 65535, 65528, 131072, 11, 65529, 131072, 18, 65529, 131072, 65517, 65529, 0, 65535, 65529, 131072, 11, 65530, 131072, 18, 65530, 131072, 65517, 65530, 0, 65526, 65530, 131072, 65527, 65530, 131072, 65528, 65530, 131072, 65529, 65530, 131072, 65530, 65530, 131072, 65531, 65530, 131072, 65532, 65530, 131072, 65533, 65530, 131072, 65534, 65530, 131072, 65535, 65530, 131072, 11, 65531, 131072, 18, 65531, 131072, 65517, 65531, 0, 65526, 65531, 131072, 65535, 65531, 131072, 11, 65532, 131072, 18, 65532, 131072, 65517, 65532, 0, 65526, 65532, 131072, 65535, 65532, 131072, 11, 65533, 131072, 18, 65533, 131072, 65517, 65533, 0, 65526, 65533, 131072, 65535, 65533, 131072, 11, 65534, 131072, 18, 65534, 131072, 65517, 65534, 0, 65526, 65534, 131072, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65535, 65534, 131072, 11, 65535, 131072, 18, 65535, 131072, 65517, 65535, 0, 65526, 65535, 131072, 65529, 65535, 0, 65532, 65535, 0, 65535, 65535, 131072 )
 }
 __meta__ = {
 "_editor_clip_": 0,
 "_editor_floor_": Vector3( 0, -1, 0 )
 }
 
-[node name="Grass" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2943, 0, -20.643 )
-
-[node name="Grass2" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.0157, 0, -16.4486 )
-
-[node name="Grass3" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2784, 0, -16.4486 )
-
-[node name="Grass4" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2784, 0, -6.45825 )
-
-[node name="Grass5" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6649, 0, -9.20151 )
-
-[node name="Grass6" parent="." instance=ExtResource( 19 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6649, 0, -9.20151 )
-
-[node name="Laser" type="Sprite3D" parent="." groups=[
-"Killer",
-]]
+[node name="Laser" type="Sprite3D" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -15.8066, 1.3286, 10.3296 )
 texture = ExtResource( 20 )
 script = ExtResource( 21 )
@@ -247,6 +226,122 @@ wait_time = 4.0
 [node name="Button" parent="." instance=ExtResource( 22 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.63063, 0, 3.32804 )
 laserpath = NodePath("../Laser")
+
+[node name="Tree" parent="." instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -75.3344, 14.2631, 0 )
+
+[node name="Tree2" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.10152, 0, -15.9896 )
+
+[node name="Tree3" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8955, 0, -34.3509 )
+
+[node name="Tree4" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30.4627, 0, -34.3509 )
+
+[node name="Tree5" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.1359, 0, -34.3509 )
+
+[node name="Tree6" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 66.7066, 0, -50.7452 )
+
+[node name="Tree7" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 88.8102, 0, -31.9346 )
+
+[node name="Tree8" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 111.73, 0, -31.9346 )
+
+[node name="Tree9" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.459, 0, -35.9159 )
+
+[node name="Tree10" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.459, 0, -14.4367 )
+
+[node name="Tree11" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.459, 0, 9.35689 )
+
+[node name="Tree12" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.459, 0, 33.5999 )
+
+[node name="Tree13" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 118.459, 0, 53.5712 )
+
+[node name="Tree14" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.36552, 0, 15.7417 )
+
+[node name="Tree15" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50943, 0, 45.371 )
+
+[node name="Tree17" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5403, 0, 60.7412 )
+
+[node name="Tree20" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 114.454, 0, 67.9754 )
+
+[node name="Tree18" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.6314, 0, -8.99497 )
+
+[node name="Tree16" parent="Tree" instance=ExtResource( 23 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.3905, 0, 30.3427 )
+
+[node name="Grass2" type="Node" parent="."]
+
+[node name="Grass3" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -53.0157, 2.11148, -16.4486 )
+
+[node name="Grass4" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2784, 2.11148, -16.4486 )
+
+[node name="Grass5" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2784, 2.11148, -6.45825 )
+
+[node name="Grass6" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6649, 2.11148, -9.20151 )
+
+[node name="Grass7" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.6649, 2.11148, -9.20151 )
+
+[node name="Grass12" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -66.1839, 2.11148, 1.66815 )
+
+[node name="Grass11" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.4466, 2.11148, 1.66815 )
+
+[node name="Grass10" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -56.4466, 2.11148, 11.6585 )
+
+[node name="Grass9" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8331, 2.11148, 8.91524 )
+
+[node name="Grass8" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -62.8331, 2.11148, 8.91524 )
+
+[node name="Grass17" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -70.6336, 2.11148, 17.1047 )
+
+[node name="Grass16" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.8963, 2.11148, 17.1047 )
+
+[node name="Grass20" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1903, 2.11148, 25.377 )
+
+[node name="Grass19" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -52.9908, 2.11148, 33.5664 )
+
+[node name="Grass18" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -43.2535, 2.11148, 33.5664 )
+
+[node name="Grass15" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60.8963, 2.11148, 27.095 )
+
+[node name="Grass14" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.2828, 2.11148, 24.3518 )
+
+[node name="Grass13" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -67.2828, 2.11148, 24.3518 )
+
+[node name="Grass" parent="Grass2" instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -61.2943, 2.11148, -20.643 )
 [connection signal="body_entered" from="Laser/Area" to="Laser" method="_on_Area_body_entered"]
 [connection signal="timeout" from="Laser/Timer" to="Laser" method="_on_Timer_timeout"]
 
