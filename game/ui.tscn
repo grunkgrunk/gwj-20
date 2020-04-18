@@ -131,6 +131,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Clock" type="Label" parent="."]
+margin_left = 807.188
+margin_top = 27.6501
+margin_right = 985.188
+margin_bottom = 114.65
+text = "12:00"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Fader" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -170,16 +181,6 @@ custom_fonts/font = SubResource( 3 )
 text = "Lorem ipsum text"
 align = 1
 autowrap = true
-
-[node name="Clock" type="Label" parent="."]
-margin_left = 940.173
-margin_top = 42.0361
-margin_right = 980.173
-margin_bottom = 56.0361
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Win" type="Label" parent="."]
 margin_left = 226.101
