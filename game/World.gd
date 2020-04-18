@@ -1,12 +1,14 @@
 extends Spatial
 
 signal clicked_retry
+signal pressed_character_select
 
 export(NodePath) var granny_path
 export(NodePath) var dad_path
 export(NodePath) var boy_path
 
 var is_gameover = false
+var in_intro = false
 
 var death_reasons = {
 	"Dog": "You where killed by doggoo",
@@ -24,26 +26,53 @@ onready var mapping = {
 # Called when the node enters the scene tree for the first time.
 onready var ch_select = $ui/CharacterSelection
 
+func start_from_intro():
+	in_intro = true
+	$ui/Clock.hide()
+	$ui/Abilities.hide()
+	$Camera.setup_intro()
+	$ui/Intro.run_intro()
+	yield($ui/Intro, "intro_text_done")
+	$ui/Intro.hide()
+	$Camera.move_to_familiy()
+	yield($Camera/Tween, "tween_completed")
+	$ui/Intro.show()
+	$ui/Intro.run_tutor()
+	yield(self, "pressed_character_select")
+	$ui/Intro.hide()
+	in_intro = false
+	show_character_select()
+
 func _ready():
 	reset()
 	ch_select.hide()
 	ch_select.connect("avatar_chosen", self, "on_avatar_chosen")
-	
 	for p in get_tree().get_nodes_in_group("Player"):
 		p.connect("used_ability", self, "_on_used_ability")
 	
 	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
+	
+	start_from_intro()
 
 func _on_used_ability(n, success, in_control):
 	if in_control:
 		$ui/Abilities.use(n, success)
-	
 
+func show_character_select():
+	ch_select.show()
+	$ui/Abilities.hide()
+	$ui/Clock.hide()
 func get_actors():
 	return get_tree().get_nodes_in_group("Actor")
 
 func _input(e):
+	if in_intro:
+		if e.is_action_pressed("character_select"):
+			emit_signal("pressed_character_select")
+
+		return
+
 	if e.is_action_pressed("character_select") and not is_gameover:
 		if ch_select.is_visible():
 			ch_select.hide()
@@ -51,10 +80,7 @@ func _input(e):
 			$ui/Abilities.show()
 			$ui/Clock.show()
 		else:
-			ch_select.show()
-			$ui/Abilities.hide()
-			$ui/Clock.hide()
-
+			show_character_select()
 			pause()
 	
 	if e.is_action_pressed("ui_accept") and is_gameover:
