@@ -24,7 +24,7 @@ func hard_set():
 	
 
 func setup_intro():
-	$Tween.interpolate_property(self, "translation", transform.origin + Vector3(0,0,200), transform.origin, 4)
+	$Tween.interpolate_property(self, "translation", transform.origin + Vector3(0,0,300), transform.origin, 4)
 	transform.origin = transform.origin + Vector3(0,0,300)
 
 func move_to_familiy():

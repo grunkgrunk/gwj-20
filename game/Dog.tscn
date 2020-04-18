@@ -18,10 +18,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.8, 1.8, 2.8, 3.7, 5.9 ),
-"transitions": PoolRealArray( 0.392292, 2.92817, 0.901251, 0.901251, 1 ),
+"times": PoolRealArray( 0, 0.8, 1.8, 2.8, 3.7, 5.9 ),
+"transitions": PoolRealArray( 0.392292, 0.392292, 2.92817, 0.901251, 0.901251, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 8.73506, 6.56434 ), Vector3( 0, 0, 11.828 ), Vector3( 0, 0, 11.828 ), Vector3( 11.4994, 0, 11.828 ) ]
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ), Vector3( 0, 8.73506, 6.56434 ), Vector3( 0, 0, 11.828 ), Vector3( 0, 0, 11.828 ), Vector3( 11.4994, 0, 11.828 ) ]
 }
 tracks/1/type = "audio"
 tracks/1/path = NodePath("AudioStreamPlayer2D")
