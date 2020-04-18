@@ -18,7 +18,7 @@ func go_to_grill():
 	$Animation.play("MoveToGrill")
 
 func return_to_rest():
-	$Animation.play("MoveToGrill", true)
+	$Animation.play("ReturnToRest", true)
 
 func anim_end(name):
 	if name == "ReturnToRest":
@@ -34,6 +34,7 @@ func catch():
 	print("You lost")
 
 func reset():
-	return_to_rest()
-	$Animation.seek(0,true)
-	$Animation.stop()
+	print("Omg i should reset")
+	$Animation.play("MoveToGrill")
+	$Animation.seek(0,false)
+	$Animation.stop(true)
