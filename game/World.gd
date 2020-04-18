@@ -11,10 +11,10 @@ var is_gameover = false
 var in_intro = false
 
 var death_reasons = {
-	"Dog": "You where killed by doggoo",
-	"Guard": "The guard spotttet you and he shot you. Maybe give him a cookie?",
-	"SecurityCam": "You got spottet by a camera",
-	"Laser": "You were burnt by very warm laser."
+	"Dog": "You tried to pet the dog. But he called the police. Maybe feed him instead.",
+	"Guard": "You were detected by the guard. This guy is well-known for having a sweet tooth.",
+	"SecurityCam": "The camera got you on tape. Had it been spinning you would have gone unnoticed.",
+	"Laser": "You were burnt to death by a laser. Remeber not to press the big red button."
 }
 
 onready var mapping = {

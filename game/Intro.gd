@@ -5,7 +5,7 @@ signal intro_text_done
 
 onready var l = $Label
 
-var texts = ["This is an intro", "You are driving", "You are about to play a fun game", "good luck"]
+var texts = ["", "You are driving", "You are about to play a fun game", "good luck"]
 
 func _ready():
 	pass
