@@ -31,10 +31,10 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
-"start_offset": 0.0,
+"start_offset": 0.2,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( -0.3 )
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="SphereShape" id=3]
@@ -45,6 +45,7 @@ radius = 5.02305
 "Killer",
 "SecurityCam",
 ]]
+transform = Transform( -0.1235, 0, -0.992345, 0, 1, 0, 0.992345, 0, -0.1235, 0, 0, 0 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]

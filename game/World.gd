@@ -56,6 +56,7 @@ func _ready():
 	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
 	
+	$ui/Intro.hide()
 	start_from_intro()
 
 func _on_took_treasure():

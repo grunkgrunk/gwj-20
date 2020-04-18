@@ -3,7 +3,7 @@ extends "res://Character.gd"
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 
 
-var ab_name_1 = "Joke"
+var ab_name_1 = "Push"
 var ab_name_2 = "Grill"
 
 func action_1():
