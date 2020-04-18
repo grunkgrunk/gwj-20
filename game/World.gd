@@ -45,15 +45,24 @@ func start_from_intro():
 
 func _ready():
 	reset()
+	$ui/Win.hide()
 	ch_select.hide()
 	ch_select.connect("avatar_chosen", self, "on_avatar_chosen")
 	for p in get_tree().get_nodes_in_group("Player"):
 		p.connect("used_ability", self, "_on_used_ability")
+		if p.name == "Boy":
+			p.connect("took_treasure", self, "_on_took_treasure")
 	
 	for g in get_tree().get_nodes_in_group("Killer"):
 		g.connect("caught",self,"on_caught")
 	
 	start_from_intro()
+
+func _on_took_treasure():
+	$ui/Fader.fade_out()
+	yield($ui/Fader/AnimationPlayer, "animation_finished")
+	$ui/Win.show()
+
 
 func _on_used_ability(n, success, in_control):
 	if in_control:

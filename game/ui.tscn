@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Fader.gd" type="Script" id=1]
 [ext_resource path="res://CharacterSelection.tscn" type="PackedScene" id=2]
@@ -41,6 +41,12 @@ tracks/0/keys = {
 }
 
 [sub_resource type="DynamicFont" id=3]
+size = 20
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 20
 use_mipmaps = true
 use_filter = true
@@ -171,6 +177,29 @@ margin_top = 42.0361
 margin_right = 980.173
 margin_bottom = 56.0361
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Win" type="Label" parent="."]
+margin_left = 226.101
+margin_top = 96.4698
+margin_right = 954.101
+margin_bottom = 285.47
+text = "You successfully stole the treasure"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Win"]
+margin_left = 235.145
+margin_top = 411.504
+margin_right = 363.145
+margin_bottom = 482.504
+custom_fonts/font = SubResource( 4 )
+text = "By Schrunkin
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }

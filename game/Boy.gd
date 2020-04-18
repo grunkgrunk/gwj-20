@@ -1,6 +1,8 @@
 extends "res://Character.gd"
 
 signal object_spawned
+signal took_treasure
+
 export(PackedScene) var cookie_scene
 
 var ab_name_1 = "Slingshot"
@@ -18,6 +20,7 @@ func _on_area_entered(a):
 		a.take()
 		has_treasure = true
 		$Position3D/Treasure.show()
+		emit_signal("took_treasure")
 
 
 func reset():
