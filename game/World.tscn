@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Dad.tscn" type="PackedScene" id=1]
 [ext_resource path="res://ui.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Treasure.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Wallhanger.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Laser.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Chandelier.png" type="Texture" id=21]
 [ext_resource path="res://Button.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Tree.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Rug.jpg" type="Texture" id=24]
@@ -328,6 +329,12 @@ spot_attenuation = 0.203063
 stream = ExtResource( 16 )
 volume_db = -14.136
 autoplay = true
+
+[node name="Chandelier" type="Sprite3D" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 11.5296, 10.5838, -3.54735 )
+billboard = 2
+shaded = true
+texture = ExtResource( 21 )
 
 [editable path="Characters/Dog"]
 
