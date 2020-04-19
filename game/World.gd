@@ -80,6 +80,7 @@ func _input(e):
 	if in_intro:
 		if e.is_action_pressed("character_select"):
 			emit_signal("pressed_character_select")
+			$up.play()
 
 		return
 
@@ -89,9 +90,12 @@ func _input(e):
 			unpause()
 			$ui/Abilities.show()
 			$ui/Clock.show()
+			$down.play()
 		else:
 			show_character_select()
 			pause()
+			$up.play()
+
 	
 	if e.is_action_pressed("ui_accept") and is_gameover:
 		emit_signal("clicked_retry")
