@@ -11,10 +11,10 @@ var is_gameover = false
 var in_intro = false
 
 var death_reasons = {
-	"Dog": "You tried to pet the dog. But he called the police. Maybe feed him instead.",
-	"Guard": "You were detected by the guard. This guy is well-known for having a sweet tooth.",
-	"SecurityCam": "The camera got you on tape. Had it been spinning you would have gone unnoticed.",
-	"Laser": "You were burnt to death by a laser. Remeber not to press the big red button."
+	"Dog": "{You} tried to pet the dog. But it called the police. Maybe feed it instead.",
+	"Guard": "{You} was detected by the guard. This guy is well-known for having a sweet tooth.",
+	"SecurityCam": "The camera got {You} on tape. Had it been spinning {You} would have gone unnoticed.",
+	"Laser": "{You} was burnt really badly by laser. Remember not to press the big red button!"
 }
 
 onready var mapping = {
@@ -118,13 +118,14 @@ func reset():
 	for a in get_actors():
 		a.reset()
 
-func gameover(killer_name):
+func gameover(killer_name, killed):
 	is_gameover = true
 	pause()
 	$ui/Fader.fade_out()
 	yield($ui/Fader/AnimationPlayer, "animation_finished")
 	$ui/GameOver.show()
-	$ui/GameOver/Reason.text = death_reasons[killer_name]
+	$ui/GameOver.text = "{You} got caught!".format({"You": killed.name})
+	$ui/GameOver/Reason.text = death_reasons[killer_name].format({"You": killed.name})
 
 	
 	
@@ -147,8 +148,8 @@ func on_avatar_chosen(avatar_name):
 	choose_character(c)
 	ch_select.hide()
 	
-func on_caught(body,name):
-	gameover(name)
+func on_caught(body,killer_name):
+	gameover(killer_name, body)
 	yield(self, "clicked_retry")
 	is_gameover = false
 	$ui/Fader.fade_in()

@@ -17,4 +17,5 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite3D" parent="."]
 transform = Transform( 0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 2.01171, 0 )
 billboard = 2
+shaded = true
 texture = ExtResource( 1 )

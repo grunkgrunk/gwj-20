@@ -163,31 +163,32 @@ __meta__ = {
 }
 
 [node name="GameOver" type="Label" parent="."]
-margin_left = 342.242
-margin_top = 270.643
-margin_right = 720.242
-margin_bottom = 341.643
-text = "Game Over"
+margin_left = 13.0
+margin_top = 254.0
+margin_right = 1016.0
+margin_bottom = 325.0
+text = "You got caught!"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Reason" type="Label" parent="GameOver"]
-margin_left = 26.0
-margin_top = 89.0
-margin_right = 332.0
-margin_bottom = 211.0
+margin_left = 356.108
+margin_top = 85.9854
+margin_right = 662.108
+margin_bottom = 207.985
 custom_fonts/font = SubResource( 3 )
 text = "Lorem ipsum text"
 align = 1
 autowrap = true
 
 [node name="Win" type="Label" parent="."]
-margin_left = 226.101
-margin_top = 96.4698
-margin_right = 954.101
-margin_bottom = 285.47
-text = "You successfully stole the treasure"
+margin_left = 226.0
+margin_top = 96.0
+margin_right = 956.0
+margin_bottom = 285.0
+text = "You stole the treasure! Good job."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
