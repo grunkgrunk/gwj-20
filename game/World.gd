@@ -137,6 +137,7 @@ func choose_character(c):
 	$ui/Abilities/C/Ability.text = c.ab_name_1
 	$ui/Abilities/V/Ability.text = c.ab_name_2
 	$ui/Abilities.show()
+	$ui/Clock.show()
 	$ui/Fader.reset()
 	$Camera.target = c
 	$Camera.hard_set()
