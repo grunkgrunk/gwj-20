@@ -17,7 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if target:
-		transform.origin = transform.origin.linear_interpolate(target.global_transform.origin + offset, 0.1)
+		transform.origin = transform.origin.linear_interpolate(target.global_transform.origin + offset, 0.2)
 
 func hard_set():
 	transform.origin = target.global_transform.origin + offset

@@ -7,7 +7,6 @@ func _ready():
 	$Sprite.frame = 0
 
 func press():
-	print("Has been pressed")
 	laser.start()
 	$Sprite.frame = 1
 

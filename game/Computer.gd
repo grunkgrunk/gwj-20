@@ -7,7 +7,6 @@ func _ready():
 	$Sprite.frame = 0
 
 func hack():
-	print("Has been hacked")
 	$Timer.start()
 	door.open()
 	$Sprite.frame = 1

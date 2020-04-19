@@ -44,10 +44,10 @@ func act(evt):
 		emit_signal("used_ability", 2, action_2_used, actions.is_player_in_control)
 		
 func action_1():
-	print("dad humor")
+	pass
 
 func action_2():
-	print("grill expert")
+	pass
 
 func reset():
 	transform.origin = start_pos

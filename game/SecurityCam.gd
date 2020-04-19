@@ -10,11 +10,7 @@ func _ready():
 func b(body):
 	if body.is_in_group("Player") and cancatch:
 		emit_signal("caught",body,name)
-		catch()
 		
-func catch():
-	
-	print("You lost")
 
 
 func hit():

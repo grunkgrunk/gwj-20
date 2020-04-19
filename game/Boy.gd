@@ -29,7 +29,6 @@ func reset():
 	.reset()
 
 func action_1():
-	print("Shoot with slingshot")
 	for a in $ActionArea.get_overlapping_areas():
 		if a.is_in_group("SecurityCam"):
 			a.hit()
@@ -39,7 +38,6 @@ func action_1():
 	
 
 func action_2():
-	print("Run super fast")
 	movespeed = 25
 	$RunTimer.start()
 	return true

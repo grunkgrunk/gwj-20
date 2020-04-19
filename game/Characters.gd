@@ -7,5 +7,4 @@ func _ready():
 			a.connect("object_spawned", self, "spawn_object")
 
 func spawn_object(o):
-	print("spawned it")
 	add_child(o)
